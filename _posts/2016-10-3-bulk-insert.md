@@ -58,8 +58,8 @@ EXECUTE (@sqlStmt);
 
 我們可以發現：
 
-| BATCHESIZE |幾筆資料 commit 一次|
-| MAXERRORS |對每一次 commit 皆有效|
+| `BATCHESIZE` |幾筆資料 commit 一次|
+| `MAXERRORS` |對每一次 commit 皆有效|
 
 假如有 100000 筆資料，
 

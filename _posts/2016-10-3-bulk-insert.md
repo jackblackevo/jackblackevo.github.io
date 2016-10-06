@@ -8,15 +8,15 @@ title: BULK INSET
 不知道那就自己動手寫[拋棄式玩具](http://online.ithome.com.tw/itadm/article.php?c=79755&s=2)來測試看看吧！
 
 {% highlight sql %}
--- 以 DECLARE 來宣告變數 --
+-- 以 DECLARE 來宣告變數（也可以同時賦值） --
 DECLARE
 @tableName as varchar(150) = 'dbo.TEST_TABLE',
 @importFileName as varchar(150) = 'C:\import_data_file.txt',
 @errorFileName as varchar(150) = 'C:\error_log_file_',
-@TodayDate as varchar(40),
-@TodayHour as varchar(40),
-@TodayMinu as varchar(40),
-@TodaySecd as varchar(40),
+@todayDate as varchar(40),
+@todayHour as varchar(40),
+@todayMinu as varchar(40),
+@todaySecd as varchar(40),
 @sqlStmt as varchar(500);
 
 -- SELECT 設定多個變數值 --
@@ -42,14 +42,13 @@ SET
 
 SET
 @sqlStmt = 'BULK INSERT ' + @tableName +
-' FROM ' + '''' + @importFileName + '''' +
-' WITH (
-FIELDTERMINATOR = ''|'',
-ROWTERMINATOR = ''\n'', 
-MAXERRORS = 10,
+' FROM ''' + @importFileName + ''' WITH (
 BATCHSIZE = 1000,
-TABLOCK,
 CODEPAGE = ''950'',
+FIELDTERMINATOR = ''|'',
+MAXERRORS = 10,
+ROWTERMINATOR = ''\n'',
+TABLOCK,
 ERRORFILE = ' + '''' + @errorFileName + '''' + ')';
 
 -- 執行 BULK INERT --
@@ -59,7 +58,7 @@ EXECUTE (@sqlStmt);
 我們可以發現：
 
 | `BATCHESIZE` |幾筆資料 commit 一次|
-| `MAXERRORS` |對每一次 commit 皆有效|
+| `MAXERRORS` |每一次 commit 可以接受的錯誤資料筆數上限|
 
 假如有 100000 筆資料，
 
@@ -70,7 +69,7 @@ BATCHESIZE = 1000,
 MAXERRORS = 10,
 {% endhighlight %}
 
-所以最多可以允許 10 筆 * (100000 筆資料 / BATCHESIZE = 1000) 錯誤。
+所以全部最多可以允許 (MAXERRORS = 10) * [100000 筆資料 / (BATCHESIZE = 1000)] 筆資料錯誤。
 
 <br />
 

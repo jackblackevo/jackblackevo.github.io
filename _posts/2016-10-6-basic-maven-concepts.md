@@ -14,7 +14,9 @@ $ brew install maven
 
 和 JDK 一樣，連 `M2_HOME` 環境變數都不用設定，因為 Homebrew 也已經自動在 `/usr/local/bin` 下建立 symbolic link 指向安裝路徑了（自動執行 `brew link` 指令）。
 
-## 運作概念要能夠正確設定 POM，最好先瞭解 Maven 如何運作。Maven 的基本架構為三個階層：
+## 運作概念要能夠正確設定 POM，最好先瞭解 Maven 如何運作。
+
+Maven 的基本架構為三個階層：
 * __Build Lifecycle__：代表的是想要執行的管理種類（編譯、清理、還是產生站台文件）	* __Phase__：負責「執行順序」上的依賴，以及簡化設定的使命		* __Goal__：真正執行功能的小螺絲釘（隸屬於 Plugin）也就是像：* Build LifecycleA	* Phase1→PluginA:GoalA or PluginB:GoalA	* Phase2→PluginA:GoalB	* Phase3→PluginC:GoalA and PluginE:GoalA	* Phase4→PluginC:GoalB* Build LifecycleB	* Phase1→PluginD:GoalA	* Phase2→PluginD:GoalB### Build Lifecycle
 Maven 有三個「獨立」建構（build）的生命週期：
 * __Clean Lifecycle__：在真正的建構前，進行清理。* __Default Lifecycle__：建構的核心行為，包括編譯、測試、打包、部署等。* __Site Lifecycle__：生成建構的報表。### Phase

@@ -66,6 +66,7 @@ EXECUTE (@sqlStmt);
 -- 每 1000 筆 commit 一次 --
 BATCHESIZE = 1000,
 -- 若其中一次 commit 錯超過 10 筆，則全部 insert（100000 筆）都會 rollback --
+-- MAXERRORS 只有在小於或等於 BATCHESIZE 時才有意義 --
 MAXERRORS = 10,
 {% endhighlight %}
 

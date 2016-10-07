@@ -28,14 +28,16 @@ $ mvn clean
 $ mvn pre-clean clean
 {% endhighlight %}
 
-每一個 Phase 都會對應（binding）一或多個 Goals（Plugins 的功能），Maven 會依據 POM 中的 packaging 元素來決定 Phase 要使用哪一個 Goal。
+而每一個 Phase 都會對應（binding）一或多個 Goals（Plugins 的功能）。
+
+除了預設的 Goals，Phase 額外對應的 Goals，Maven 會以 Plugin 的角度，依據 POM 中 `<plugin>` 元素的 `<executions>` 設定其 Goals 對應到哪些 Phase。
 
 ### Plugins & Goals
 #### PluginsMaven 核心做的事很少，主要為解析 XML、追蹤生命週期、控制 Plugins，大部分的工作實際上都是由 Plugins 的 Goals 負責執行。內建的 Plugins 包括 `clean`、`compile`、`package`⋯⋯等等。
 
 Plugins 大致上分為兩類：
 * 建構類（build）* 報表類（reporting）
-即 POM 中 `<build>`、`<reporting>` 的部分。在使用 Maven 時，最主要的步驟之一就是在 POM 中設定要用到的 Plugins 的設定值，這樣就可以為各預設的 Phase 加上額外的 Goals。Maven 在執行的順序會是：1. Phase 內建的 Goals（若在 POM 中有設定，會取代預設的設定值）2. 自行加入的 Goals（自行加入的順序則依在 POM 中的順序）Plugins 通常會有一個 `help` 的 Goal，可以查看該 Plugin 的說明。如查看 `complier` 的說明，可使用以下指令：
+即 POM 中 `<build>`、`<reporting>` 的部分。在使用 Maven 時，最主要的步驟之一就是在 POM 中設定要用到的 Plugins 的設定值，這樣就可以為各預設的 Phase 加上額外的 Goals。Maven 在執行的順序會是：1. Phase 內建的 Goals（若在 POM 中有設定，會取代預設的設定值）2. 自行加入的 Goals（以 `<executions>` 設定對應至哪一個 Phase，執行順序依據在 POM 中定義的順序）大部分 Plugins 通常會有一個 `help` 的 Goal，可以查看該 Plugin 的說明。如查看 `complier` 的說明，可使用以下指令：
 {% highlight shell %}$ mvn compiler:help{% endhighlight %}
 
 #### Goals每個 Plugin 都會提供一或多個 Goals（功能），而每一個 Goal 各自代表一個獨立的任務，是 Maven 執行工作的最小單位。例如：

@@ -31,7 +31,7 @@ $ mvn pre-clean clean
 每一個 Phase 都會對應（binding）一或多個 Goals（Plugins 的功能），Maven 會依據 POM 中的 packaging 元素來決定 Phase 要使用哪一個 Goal。
 
 ### Plugins & Goals
-#### PluginsMaven 核心做的事很少，主要為解析 XML、追蹤生命週期、控制 Plugins，大部分的工作實際上都是由 Plugins 的 Goals 負責執行。內建的 Plugins 包括 clean、compile、package⋯⋯等等。
+#### PluginsMaven 核心做的事很少，主要為解析 XML、追蹤生命週期、控制 Plugins，大部分的工作實際上都是由 Plugins 的 Goals 負責執行。內建的 Plugins 包括 `clean`、`compile`、`package`⋯⋯等等。
 
 Plugins 大致上分為兩類：
 * 建構類（build）* 報表類（reporting）

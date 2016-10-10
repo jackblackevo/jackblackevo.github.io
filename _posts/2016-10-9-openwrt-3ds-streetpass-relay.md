@@ -55,9 +55,11 @@ x:commit(c)
 os.execute("wifi reload radio0")
 {% endhighlight %}
 
-記得要把自己的 3DS MAC Address 填入。而 SSID 改用「attwifi」，實際測試「NZ@McD1」和「NZ@McD」都沒有辦法正常運作。
+記得要把自己的 3DS MAC Address 填入，限制只讓 3DS 連線。
 
-2\. 儲存後，我們必須修改權限讓檔案可被讀取及執行：
+SSID 已改用「attwifi」（實際測試過「NZ@McD1」、「NZ@McD」皆無法正常擦身）。
+
+2\. 儲存後，必須修改權限讓檔案可被讀取及執行：
 {% highlight shell %}
 $ chmod 755 /usr/bin/homepass
 {% endhighlight %}

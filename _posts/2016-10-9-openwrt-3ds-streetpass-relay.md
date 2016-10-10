@@ -57,7 +57,12 @@ os.execute("wifi reload radio0")
 
 記得要把自己的 3DS MAC Address 填入。而 SSID 改用「attwifi」，實際測試「NZ@McD1」和「NZ@McD」都沒有辦法正常運作。
 
-2\. 儲存後，我們必須將此腳本加入排程中定時執行：
+2\. 儲存後，我們必須修改權限讓檔案可被讀取及執行：
+{% highlight shell %}
+$ chmod 755 /usr/bin/homepass
+{% endhighlight %}
+
+3\. 再將腳本加入排程中定時執行：
 {% highlight shell %}
 $ crontab -e
 {% endhighlight %}
@@ -67,7 +72,7 @@ $ crontab -e
 */2 *  *   *   *  /usr/bin/homepass | logger -t homepass
 {% endhighlight %}
 
-3\. 最後啟用排程：
+4\. 最後啟用排程：
 {% highlight shell %}
 $ /etc/init.d/cron start
 $ /etc/init.d/cron enable

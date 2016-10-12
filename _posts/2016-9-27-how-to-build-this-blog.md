@@ -3,7 +3,7 @@ layout: post
 title: Blog 建立步驟
 ---
 
-使用 [jekyll-now](https://github.com/barryclark/jekyll-now) 主題，於本地端建立。第一次接觸，還很不熟悉。😅
+使用 [jekyll-now](https://github.com/barryclark/jekyll-now) 主題，於本地端建立。第一次接觸，還很不熟悉 😅
 
 環境為 macOS，已安裝 [Homebrew](http://brew.sh/index_zh-tw.html)。
 

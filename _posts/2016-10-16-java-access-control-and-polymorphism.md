@@ -3,7 +3,7 @@ layout: post
 title: Java 存取控制與多型
 ---
 
-Java 的存取修飾字 private 限制了類別的成員僅可於同一個類別內訪問，但是 PTT 上的[這個問題](http://www.ptt.cc/bbs/java/M.1475931276.A.45D.html)怎麼會發生子類別實體卻可以呼叫父類別私有方法的情況呢？
+Java 的存取修飾字 `private` 限制了類別的成員僅可於同一個類別內訪問，但是 PTT 上的[這個問題](http://www.ptt.cc/bbs/java/M.1475931276.A.45D.html)怎麼會發生子類別實體卻可以呼叫父類別私有方法的情況呢？
 
 來看看這個範例：
 {% highlight java %}

@@ -3,7 +3,7 @@ layout: post
 title: JavaScript 事件流
 ---
 
-JavaScript 是以事件驅動的程式語言，因此 Event Flow 就成為了 JS 必備重要的觀念。
+JavaScript 是以事件驅動的程式語言，因此 Event Flow 就成為了 JS 必備的重要觀念。
 
 ## 事件處理模型
 

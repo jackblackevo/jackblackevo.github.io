@@ -5,7 +5,12 @@ title: 利用 OpenWrt 建立 Nintendo 3DS 擦身中繼站
 
 任天堂 3DS 可以利用 AP 來當作擦身中繼站，但是同一個 AP 的 MAC Address 限制每次擦身都要相隔八小時，那我們不斷的換 MAC Address 總可以吧 XD
 
-1\. 以 telent 連上並登入 OpenWrt 之後，於 `/usr/bin` 建立 Shell Script 檔案：
+1\. 使用 ssh 連上 AP：
+{% highlight shell %}
+$ ssh root@192.168.1.1
+{% endhighlight %}
+
+2\. 以 root 登入 OpenWrt 之後，於 `/usr/bin` 建立 Shell Script 檔案：
 {% highlight shell %}
 $ vim /usr/bin/homepass
 {% endhighlight %}
@@ -59,12 +64,12 @@ os.execute("wifi reload radio0")
 
 SSID 已改用「attwifi」（實際測試過「NZ@McD1」、「NZ@McD」皆無法正常擦身）。
 
-2\. 儲存後，必須修改權限讓檔案可被讀取及執行：
+3\. 儲存後，必須修改權限讓檔案可被讀取及執行：
 {% highlight shell %}
 $ chmod 755 /usr/bin/homepass
 {% endhighlight %}
 
-3\. 再將腳本加入排程中定時執行：
+4\. 再將腳本加入排程中定時執行：
 {% highlight shell %}
 $ crontab -e
 {% endhighlight %}
@@ -74,7 +79,7 @@ $ crontab -e
 */2 *  *   *   *  /usr/bin/homepass | logger -t homepass
 {% endhighlight %}
 
-4\. 最後啟用排程：
+5\. 最後啟用排程：
 {% highlight shell %}
 $ /etc/init.d/cron start
 $ /etc/init.d/cron enable

@@ -58,10 +58,10 @@ Webpack 2 的設定檔和舊版不同，要特別注意！
 const path = require('path');
 
 module.exports = {
-  // entry 所在目錄
+  // 根據的目錄之路徑
   // __dirname 代表此設定檔（webpack.config.js）的所在目錄
   context: path.join(__dirname, 'src'),
-  // entry（進入點）檔案
+  // entry（進入點）檔案路徑（相對於 context）
   entry: './index.js',
   // 輸出設定
   output: {

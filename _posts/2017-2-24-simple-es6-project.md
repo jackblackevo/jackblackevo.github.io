@@ -56,9 +56,9 @@ project
 Webpack 2 的設定檔和舊版不同，要特別注意！
 {% highlight javascript %}
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
+  // entry 所在目錄
   // __dirname 代表此設定檔（webpack.config.js）的所在目錄
   context: path.join(__dirname, 'src'),
   // entry（進入點）檔案
@@ -72,7 +72,7 @@ module.exports = {
     // Webpack Dev Server 運作時
     // 並不會真的產出檔案，而是存放在記憶體中
     // 記憶體中的檔案，路徑會對應 publicPath 所設定的位置
-    publicPath: '/js'
+    publicPath: '/js/'
   },
   // entry 依賴的模組
   module: {
@@ -87,6 +87,13 @@ module.exports = {
         loader: 'babel-loader'
       }]
     }]
+  },
+  // Webpack Dev Server 設定
+  devServer: {
+    // 伺服器根目錄位置
+    contentBase: path.join(__dirname, 'dist'),
+    // 開啟 inline mode（Automatic Refresh）
+    inline: true
   }
 };
 {% endhighlight %}
@@ -102,7 +109,7 @@ Babel 設定檔加上 ES6 轉譯規則：
 ## package.json
 在 package.json 中的 `scripts` 加入：
 {% highlight json %}
-"start": "webpack-dev-server --progress --colors --inline --hot --content-base ./dist",
+"start": "webpack-dev-server --progress --colors",
 "build": "webpack --progress --colors"
 {% endhighlight %}
 方便我們使用 `npm run start`、`npm run build` 來執行自訂的指令：
@@ -111,3 +118,10 @@ Babel 設定檔加上 ES6 轉譯規則：
 
 ## .gitignore
 專案相依套件的安裝目錄（node_modules）以及開發時所產生的檔案，能在 .gitignore 中設定讓 Git 排除，可以直接至 [gitignore.io](https://www.gitignore.io/) 取得製作好的[設定檔](https://www.gitignore.io/api/node)。
+
+<br />
+
+額外參考：
+
+* [Webpack - Concepts](https://webpack.js.org/concepts/)
+* [Webpack - Configuration](https://webpack.js.org/configuration/)

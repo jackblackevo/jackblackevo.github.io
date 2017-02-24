@@ -61,7 +61,7 @@ module.exports = {
   // 根據的目錄之路徑
   // __dirname 代表此設定檔（webpack.config.js）的所在目錄
   context: path.join(__dirname, 'src'),
-  // entry（進入點）檔案路徑（相對於 context）
+  // entry（進入點）檔案路徑（基於 context）
   entry: './index.js',
   // 輸出設定
   output: {
@@ -115,6 +115,8 @@ Babel 設定檔加上 ES6 轉譯規則：
 方便我們使用 `npm run start`、`npm run build` 來執行自訂的指令：
 * `npm run start` 啟動 Webpack Dev Server
 * `npm run build` 使用 Webpack 進行打包
+
+透過 `npm run` 實際呼叫的是安裝在專案中的 Webpack、Webpack Dev Server，而不是全域中的套件。
 
 ## .gitignore
 專案相依套件的安裝目錄（node_modules）以及開發時所產生的檔案，能在 .gitignore 中設定讓 Git 排除，可以直接至 [gitignore.io](https://www.gitignore.io/) 取得製作好的[設定檔](https://www.gitignore.io/api/node)。

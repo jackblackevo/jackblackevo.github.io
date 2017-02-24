@@ -58,42 +58,46 @@ Webpack 2 的設定檔和舊版不同，要特別注意！
 const path = require('path');
 
 module.exports = {
-  // 根據的目錄之路徑
+  // 執行環境，即 webpack 指令作用的工作目錄（本機路徑）
   // __dirname 代表此設定檔（webpack.config.js）的所在目錄
   context: path.join(__dirname, 'src'),
-  // entry（進入點）檔案路徑（基於 context）
+  // Entry（進入點）檔案路徑（基於 context）
+  // Entry 即引入依賴其他模組的檔案
   entry: './index.js',
   // 輸出設定
   output: {
-    // 目標路徑
+    // 輸出檔的目標位置（本機路徑）
     path: path.join(__dirname, 'dist/js'),
     // 輸出檔名
-    filename: 'bundle.js',
-    // Webpack Dev Server 運作時
-    // 並不會真的產出檔案，而是存放在記憶體中
-    // 記憶體中的檔案，路徑會對應 publicPath 所設定的位置
-    publicPath: '/js/'
+    filename: 'bundle.js'
   },
-  // entry 依賴的模組
+  // Loaders（轉換器）設定
+  // Loader 可以載入指定的資源，並進行輸出轉換
   module: {
-    // 設定模組規則
+    // Loaders 規則
     rules: [{
-      // 表示為所有的 *.js 檔案（正則表示法）
+      // 表示作用在 *.js 檔案（正則表示法）
       test: /\.js$/,
-      // 排除 node_modules 目錄（正則表示法）
+      // 排除作用於 node_modules 目錄（正則表示法）
       exclude: /node_modules/,
+      // 應用此規則的 Loaders
       use: [{
-        // 使用的 loader（在 Webpack 2 不可簡寫成 'babel'）
+        // Loader 名稱在 Webpack 2 不可省略 '-loader' 後綴
         loader: 'babel-loader'
       }]
     }]
   },
   // Webpack Dev Server 設定
   devServer: {
-    // 伺服器根目錄位置
+    // 伺服器根目錄位置（本機路徑）
     contentBase: path.join(__dirname, 'dist'),
     // 開啟 inline mode（Automatic Refresh）
-    inline: true
+    inline: true,
+    // 輸出檔於伺服器公開位置中的絕對路徑
+    // 在 Webpack Dev Server 運作時
+    // 並不會真的產出轉換後的檔案，而是存放在記憶體中
+    // 記憶體中的檔案，路徑會對應 publicPath 所設定的位置
+    publicPath: '/js/'
   }
 };
 {% endhighlight %}
@@ -102,7 +106,12 @@ module.exports = {
 Babel 設定檔加上 ES6 轉譯規則：
 {% highlight json %}
 {
-  "presets": ["es2015"]
+  "presets": [
+    ["es2015", {
+      // 不將 ES2015 模組轉譯成 CommonJS 模組
+      "modules": false
+    }]
+  ]
 }
 {% endhighlight %}
 
@@ -127,3 +136,4 @@ Babel 設定檔加上 ES6 轉譯規則：
 
 * [Webpack - Concepts](https://webpack.js.org/concepts/)
 * [Webpack - Configuration](https://webpack.js.org/configuration/)
+* [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/)

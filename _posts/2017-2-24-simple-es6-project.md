@@ -5,6 +5,17 @@ title: 建立基本的 ES6 專案
 
 ECMAScript 2015 正式版本已經推出一年多了，雖然各大瀏覽器尚未完全支援，但是我們仍可以透過 NPM 建立專案，再搭配 Webpack、Babel 等工具來輔助開發。
 
+## 建立專案目錄
+建立專案專案目錄，並建立子目錄：dist、src（原始碼）
+* dist 為開發完畢時要發布的檔案所在目錄，放置 HTML、CSS 以及轉譯後 JavaScript
+* src 則是撰寫 ES6 的開發目錄
+
+{% highlight text %}
+project
+├── dist
+└── src
+{% endhighlight %}
+
 ## 建立 NPM 專案
 於專案目中輸入指令：
 {% highlight shell %}
@@ -34,17 +45,13 @@ $ npm install babel-core --save-dev
 $ npm install babel-preset-es2015 --save-dev
 {% endhighlight %}
 
-## 專案目錄結構
-※bundle.js 為轉譯後產出的檔案
+## 建立設定檔案
+現在專案目錄中多了 package.json 設定檔，以及放置安裝套件的 node_modules 目錄。接下來要在專案目錄下建立：webpack.config.js、.babelrc、.gitignore 設定檔。
+
 {% highlight text %}
 project
 ├── dist
-│    ├── css
-│    ├── js
-│    │    └── (bundle.js)
-│    └── index.html
 ├── src
-│    └── index.js
 ├── node_modules
 ├── .babelrc
 ├── .gitignore
@@ -52,7 +59,7 @@ project
 └── webpack.config.js
 {% endhighlight %}
 
-## webpack.config.js
+### webpack.config.js
 Webpack 2 的設定檔和舊版不同，要特別注意！
 {% highlight javascript %}
 const path = require('path');
@@ -102,7 +109,7 @@ module.exports = {
 };
 {% endhighlight %}
 
-## .babelrc
+### .babelrc
 Babel 設定檔加上 ES6 轉譯規則：
 {% highlight json %}
 {
@@ -115,7 +122,7 @@ Babel 設定檔加上 ES6 轉譯規則：
 }
 {% endhighlight %}
 
-## package.json
+### package.json
 在 package.json 中的 `scripts` 加入：
 {% highlight json %}
 "start": "webpack-dev-server --progress --colors",
@@ -127,8 +134,29 @@ Babel 設定檔加上 ES6 轉譯規則：
 
 透過 `npm run` 實際呼叫的是安裝在專案中的 Webpack、Webpack Dev Server，而不是全域中的套件。
 
-## .gitignore
+### .gitignore
 專案相依套件的安裝目錄（node_modules）以及開發時所產生的檔案，能在 .gitignore 中設定讓 Git 排除，可以直接至 [gitignore.io](https://www.gitignore.io/) 取得製作好的[設定檔](https://www.gitignore.io/api/node)。
+
+## 完整專案結構
+完成所有設定之後，便可以將 HTML、CSS 置於 dist 中，並在 src 開始撰寫 ES6 程式。
+
+{% highlight text %}
+project
+├── dist
+│    ├── css
+│    ├── js
+│    │    └── (bundle.js)
+│    └── index.html
+├── src
+│    └── index.js
+├── node_modules
+├── .babelrc
+├── .gitignore
+├── package.json
+└── webpack.config.js
+{% endhighlight %}
+
+※bundle.js 為轉譯後產出的檔案
 
 <br />
 

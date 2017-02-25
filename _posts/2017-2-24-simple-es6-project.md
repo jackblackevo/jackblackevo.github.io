@@ -6,7 +6,7 @@ title: 建立基本的 ES6 專案
 ECMAScript 2015 正式版本已經推出一年多了，雖然各大瀏覽器尚未完全支援，但是我們仍可以透過 NPM 建立專案，再搭配 Webpack、Babel 等工具來輔助開發。
 
 ## 建立專案目錄
-建立專案專案目錄，並建立子目錄：dist、src（原始碼）
+建立專案專案目錄，並建立子目錄 dist、src：
 * dist 為開發完畢時要發布的檔案所在目錄，放置 HTML、CSS 以及轉譯後 JavaScript
 * src 則是撰寫 ES6 的開發目錄
 

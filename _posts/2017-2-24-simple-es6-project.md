@@ -100,6 +100,8 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     // 開啟 inline mode（Automatic Refresh）
     inline: true,
+    // 自動開啟瀏覽器
+    open: true,
     // 輸出檔於伺服器公開位置中的絕對路徑
     // 在 Webpack Dev Server 運作時
     // 並不會真的產出轉換後的檔案，而是存放在記憶體中

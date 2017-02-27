@@ -3,10 +3,10 @@ layout: post
 title: 以 fish 做為預設的 shell
 ---
 
-[fish shell](https://fishshell.com/) 是可以代替 macOS 預設 bash 的另一個 shell 選擇。fish 有語法高亮（syntax highlighting）以及指令提示等功能，對常使用 CLI 的人來說相當的方便。
+[fish shell](https://fishshell.com/) 是可以代替 macOS 預設 bash 的另一個 shell 選擇。fish 有語法高亮（syntax highlighting）以及指令提示等功能，對常使用 CLI 的開發者來說相當便利。
 
 ## 安裝 iTerm2
-由於 macOS 預設的 Terminal 終端機過於陽春，所以我們以 [iTerm2](https://www.iterm2.com/) 來搭配 fish：
+由於 macOS 預設的 Terminal 終端機過於陽春，所以我們使用 [iTerm2](https://www.iterm2.com/) 來搭配 fish：
 {% highlight shell %}
 $ brew install Caskroom/cask/iterm2
 {% endhighlight %}

@@ -56,24 +56,38 @@ $ echo "set -g -x PATH (brew --prefix ruby)/bin $PATH" >> ~/.config/fish/config.
 {% endhighlight %}
 
 ## 解決 NVM 無法在 fish shell 下執行問題
-同樣因為 fish 不相容 bash，也導致 NVM 中的 nvm.sh 無法正常在 fish 下執行。我們可以透過 fish 的套件管理工具—[fisherman](https://fisherman.github.io/) 來安裝 [NVM 支援](https://github.com/fisherman/nvm)。
+同樣因為 fish 不相容 bash，也導致 NVM 中的 nvm.sh 無法正常在 fish 中執行。我們可以透過 fish 的套件管理工具—[fisherman](https://fisherman.github.io/) 來安裝 [Fish-nvm](https://github.com/fisherman/nvm) 以支援 NVM。
 
-假設已透過 Homebrew 安裝完 NVM，先建立 symbolic link 指向由 Homebrew 所安裝的 NVM 之 nvm.sh：
-{% highlight shell %}
-$ ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
-{% endhighlight %}
-
-設定 `NVM_DIR` 環境變數：
-{% highlight shell %}
-$ echo "set -g -x NVM_DIR $HOME/.nvm" >> ~/.config/fish/config.fish
-{% endhighlight %}
-
-安裝 fisherman：
+假設已透過 Homebrew 安裝完 NVM，接著安裝 fisherman：
 {% highlight shell %}
 $ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 {% endhighlight %}
 
-透過 fisherman 安裝 fish 對 NVM 的支援：
+透過 fisherman 安裝 Fish-nvm：
 {% highlight shell %}
 $ fisher nvm
+{% endhighlight %}
+
+建立 symbolic link 指向由 Homebrew 所安裝 NVM 的 nvm.sh，讓 Fish-nvm 能夠找到：
+{% highlight shell %}
+$ ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
+{% endhighlight %}
+
+設定 NVM 的 `NVM_DIR` 環境變數：
+{% highlight shell %}
+$ echo "set -g -x NVM_DIR $HOME/.nvm" >> ~/.config/fish/config.fish
+{% endhighlight %}
+
+再設定於 fish 載入時以 [Bass](https://github.com/edc/bass) 執行 nvm.sh，讓 NVM 自動使用預設 Node.js 版本：
+{% highlight shell %}
+$ echo "bass source (brew --prefix nvm)/nvm.sh" >> ~/.config/fish/config.fish
+{% endhighlight %}
+※這是為了解決在執行 `node` 之前，`npm` 指令無法使用的問題：
+{% highlight text %}
+env: node: No such file or directory
+{% endhighlight %}
+
+設定完畢後重新載入 fish shell 設定檔即可：
+{% highlight shell %}
+$ source ~/.config/fish/config.fish
 {% endhighlight %}

@@ -55,6 +55,15 @@ $ echo "export PATH=$(brew --prefix ruby)/bin:$PATH" >> ~/.bash_profile
 $ echo "set -g -x PATH (brew --prefix ruby)/bin $PATH" >> ~/.config/fish/config.fish
 {% endhighlight %}
 
+## 設定 fish shell 配色及提示
+fish 內建多種配色以及提示功能，若有使用 Git 還可以直接看到目前所在的分支名稱、檔案異動狀態等資訊。
+
+開啟 fish shell 的設定頁面：
+{% highlight shell %}
+$ fish_config
+{% endhighlight %}
+※點選 Set 按鈕之後請等待點秒鐘，看到 Set! 才代表設定成功。完成設定後，須在 CLI 按下 Enter 結束。
+
 ## 解決 NVM 無法在 fish shell 下執行問題
 同樣因為 fish 不相容 bash，也導致 NVM 中的 nvm.sh 無法正常在 fish 中執行。我們可以透過 fish 的套件管理工具—[fisherman](https://fisherman.github.io/) 來安裝 [Fish-nvm](https://github.com/fisherman/nvm) 以支援 NVM。
 

@@ -14,7 +14,7 @@ $ brew install ruby
 
 2\. 將新安裝的 Ruby 路徑加到環境變數中，並重載入 `.bash_profile` 設定檔：
 {% highlight shell %}
-$ echo 'export PATH=$(brew --prefix ruby)/bin:$PATH' >> ~/.bash_profile
+$ echo "export PATH=$(brew --prefix ruby)/bin:$PATH" >> ~/.bash_profile
 $ source ~/.bash_profile
 {% endhighlight %}
 

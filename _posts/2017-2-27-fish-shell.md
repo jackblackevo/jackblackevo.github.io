@@ -20,7 +20,7 @@ $ brew install fish
 
 ## 將 fish 設為預設 shell
 {% highlight shell %}
-$ echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
+$ echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 $ chsh -s /usr/local/bin/fish
 {% endhighlight %}
 
@@ -47,12 +47,12 @@ iTerm 2 -> Preferences -> Profiles -> Colors
 
 這裡以 Homebrew 安裝的 Ruby 做為範例，原本在 bash 的環境變數設定指令：
 {% highlight shell %}
-$ echo 'export PATH=$(brew --prefix ruby)/bin:$PATH' >> ~/.bash_profile
+$ echo "export PATH=$(brew --prefix ruby)/bin:$PATH" >> ~/.bash_profile
 {% endhighlight %}
 
 在 fish 則是：
 {% highlight shell %}
-$ echo 'set -g -x PATH (brew --prefix ruby)/bin $PATH' >> ~/.config/fish/config.fish
+$ echo "set -g -x PATH (brew --prefix ruby)/bin $PATH" >> ~/.config/fish/config.fish
 {% endhighlight %}
 
 ## 解決 NVM 無法在 fish shell 下執行問題
@@ -65,7 +65,7 @@ $ ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 
 設定 `NVM_DIR` 環境變數：
 {% highlight shell %}
-$ echo 'set -g -x NVM_DIR $HOME/.nvm' >> ~/.config/fish/config.fish
+$ echo "set -g -x NVM_DIR $HOME/.nvm" >> ~/.config/fish/config.fish
 {% endhighlight %}
 
 安裝 fisherman：

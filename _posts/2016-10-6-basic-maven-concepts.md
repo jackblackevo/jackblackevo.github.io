@@ -54,9 +54,9 @@ Plugins 大致上分為兩類：
 在父模組 POM 中，將子模組組織好，Maven 會在執行時尋找子模組：
 {% highlight xml %}
 <modules>
-	<!-- 子模組的「路徑」 -->
-	<module>childA</module>
-	<module>childB</module>
+  <!-- 子模組的「路徑」 -->
+  <module>childA</module>
+  <module>childB</module>
 </modules>
 {% endhighlight %}
 
@@ -77,11 +77,11 @@ Plugins 大致上分為兩類：
 在子 POM 中，指向父模組 POM：
 {% highlight xml %}
 <parent>
-	<groupId>idv.jackblackevo.mavenTest</groupId>
-	<artifactId>ProjectName</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<!— 若父 POM 與子 POM 的目錄是父子關係時可省略 relativePath -->
-	<relativePath>../pom.xml</relativePath>
+  <groupId>idv.jackblackevo.mavenTest</groupId>
+  <artifactId>ProjectName</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <!— 若父 POM 與子 POM 的目錄是父子關係時可省略 relativePath -->
+  <relativePath>../pom.xml</relativePath>
 </parent>
 {% endhighlight %}
 

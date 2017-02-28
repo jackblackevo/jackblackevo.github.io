@@ -8,23 +8,23 @@ Java 的存取修飾字 `private` 限制了類別的成員僅可於同一個類�
 來看看這個範例：
 {% highlight java %}
 class ChildClass extends FatherClass {
-	public void mehtodA() {
-		System.out.println("it's ChildClass");
-	}
+  public void mehtodA() {
+    System.out.println("it's ChildClass");
+  }
 }
 
 public class FatherClass {
-	private void mehtodA() {
-		System.out.println("it's FatherClass");
-	}
-	
-	public static void main(String[] args) {
-		FatherClass objDeclaredByFather = new ChildClass();
-		objDeclaredByFather.mehtodA();
-		
-		ChildClass objDeclaredByChild = new ChildClass();
-		objDeclaredByChild.mehtodA();
-	}
+  private void mehtodA() {
+    System.out.println("it's FatherClass");
+  }
+
+  public static void main(String[] args) {
+    FatherClass objDeclaredByFather = new ChildClass();
+    objDeclaredByFather.mehtodA();
+
+    ChildClass objDeclaredByChild = new ChildClass();
+    objDeclaredByChild.mehtodA();
+  }
 }
 {% endhighlight %}
 

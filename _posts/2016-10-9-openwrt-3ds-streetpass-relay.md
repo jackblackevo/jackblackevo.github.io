@@ -87,8 +87,5 @@ $ /etc/init.d/cron enable
 
 現在闔蓋待機的 3DS 就會自動透過擦身中繼 AP 和全世界的玩家擦身囉～
 
-<br />
-
-額外參考：
-
+## 額外參考
 * [利用 crontab 來做 Linux 固定排程](http://code.kpman.cc/2015/02/11/%E5%88%A9%E7%94%A8-crontab-%E4%BE%86%E5%81%9A-Linux-%E5%9B%BA%E5%AE%9A%E6%8E%92%E7%A8%8B/)

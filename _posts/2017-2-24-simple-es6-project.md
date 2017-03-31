@@ -186,10 +186,7 @@ if (module.hot) {
 {% endhighlight %}
 讓 HMR 偵測 index.js 所相依的模組。
 
-<br />
-
-額外參考：
-
+## 額外參考
 * [Webpack - Concepts](https://webpack.js.org/concepts/)
 * [Webpack - Configuration](https://webpack.js.org/configuration/)
 * [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/)

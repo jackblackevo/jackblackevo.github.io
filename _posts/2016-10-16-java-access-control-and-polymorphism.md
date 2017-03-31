@@ -71,8 +71,6 @@ obj.privateStaticMethod();
 
 而程式進入點（`main` 方法）被定義在 `FatherClass` 類別中，`objDeclaredByFather` 又是以 `FatherClass` 宣告的 `ChildClass` 物件實體。所以滿足了存取限制的條件，因此 `objDeclaredByFather.mehtodA()` 可以正確編譯並執行。若是把 `main` 方法定義在 `ChildClass`，就會因為存取限制而無法呼叫了。
 
-<br />
-
+## 額外參考
 我在 PTT 的回答：
-
 * [Re: [問題] 關於向上轉型](https://www.ptt.cc/bbs/java/M.1475950066.A.A65.html)

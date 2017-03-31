@@ -74,9 +74,6 @@ MAXERRORS = 10,
 
 ※在執行前，請確認 `ERRORFILE` 所指向的目錄是存在且可被存取的，否則會出現「系統找不到指定的路徑」的錯誤。
 
-<br />
-
-額外參考：
-
+## 額外參考
 * [老蕭的網路筆記 - SQL Server 的 SELECT 與 SET](http://hccrichard.blogspot.tw/2010/12/sql-server-select-set.html)
 * [MSDN - CAST 和 CONVERT](https://msdn.microsoft.com/zh-tw/library/ms187928.aspx)

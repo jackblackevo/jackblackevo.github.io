@@ -34,9 +34,6 @@ _小提示：macOS、Linux 對大小寫敏感，Windows 則是大小寫不敏感
 * macOS、Linux 的使用者環境變數優先度大於系統變數（先載入系統 bash 設定檔，後載入使用者 bash 設定檔）
 * Windows 的系統環境變數優先度大於使用者環境變數（以「系統環境變數 + 使用者環境變數」型式讀入）
 
-<br />
-
-額外參考：
-
+## 額外參考
 * [良葛格學習筆記 - PATH 是什麼？](http://openhome.cc/Gossip/JavaEssence/WhatPath.html)
 * [鳥哥的 Linux 私房菜 -- 第十章、認識與學習BASH - Bash shell 的操作環境](http://linux.vbird.org/linux_basic/0320bash.php#settings)

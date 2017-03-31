@@ -12,14 +12,14 @@ title: 關鍵轉譯路徑
    * Bytes -> Characters -> Tokens -> Nodes -> DOM
 3. 在解析 HTML 的過程中，發現引用的外部資源時，便會發送請求來取得
    * 例如 HTML 標籤：`<link>`、`<script>`、`<img>` 等
-   * 開始請求 JavaScript 檔案時，便會因為「禁止剖析器（parser blocking）」而立即停止建構 DOM
+   * 開始請求 JavaScript 檔案時，便會因為「禁止剖析器（parser blocking）」而立即停止建構 DOM，直到 JS 執行完畢才會繼續
    * 但即使先請求 JS 資源，瀏覽器還是可以不受 parser blocking 的影響，緊接著發送請求 CSS。這是因為瀏覽器有 Preload Scanner 機制，可以事先找到需要請求的資源檔案
 4. 取得 CSS 後，瀏覽器即會解析、建立 CSSOM（CSS Object Model）
    * Bytes -> Characters -> Tokens -> Nodes -> CSSOM
    * 若 CSSOM 尚未建構完畢，會等待 CSSOM 完成後才執行 JavaScript（若 `<script>` 標籤在 CSS 之後則不受此限制影響）
-5. 取得 JavaScript 後，瀏覽器開始執行 JS 時會停止建構 DOM（同前面所述之 parser blocking）
+5. 取得 JavaScript 後，瀏覽器開始執行 JS 時會暫時停止建構 DOM（同前面所述之 parser blocking）
 6. 建立轉譯樹狀結構（Render Tree）
-7. 瀏覽器依據 Render Tree 進行計算後再繪製出網頁畫面
+7. 瀏覽器依據 Render Tree 進行計算後，再繪製出網頁畫面
 
 ### DOM
 * 文件物件模型（DOM，Document Object Model）為 HTML 所有元素的階層結構樹狀模型
@@ -32,7 +32,7 @@ title: 關鍵轉譯路徑
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0">
-    <title>Hello World</title>
+    <title>Sample Page</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -76,7 +76,7 @@ img {
 ### Render Tree
 * 轉譯樹狀結構（Render Tree）為一個由在頁面布局（layout）中實際佔位的 DOM 元素關連到 CSSOM 的樹狀結構模型
 * HTML 和 CSS 都是會影響 Render Tree 的資源，在 DOM 及 CSSOM 建構完成之前，皆會因「禁止轉譯（render blocking）」而禁止瀏覽器建構 Render Tree
-* 瀏覽器在關連 DOM 與 CSSOM 時，是以 CSS 選擇器（CSS Selector）「右到左」的方向來提高效率。如 `div div p em`，直接找到 `em` 去檢查其上層是否為 `p`、`div`、`div`）
+* 瀏覽器在關連 DOM 與 CSSOM 時，是以 CSS 選擇器（CSS Selector）「右到左」的方向來提高效率。如 `div p span`，是直接尋找 `span` 再檢查其祖先（ancestor）是否為 `p`、`div`）
 * 每個會顯示出來的 DOM 元素皆以一個像方塊盒子般的方式呈現，而每一個盒子就是一個表示位置、大小、顏色等等顯示資訊的物件模型（此模型 WebKit 稱為：Renderer、Gecko 則叫：Frame）
 * 實際要繪製（painting 或稱為 rasterizing）網頁畫面之前，瀏覽器會依照 Render Tree 中物件模型的顯示資訊計算實際座標幾何資訊、像素大小等（此動作 WebKit 稱為：Layout、Gecko 則叫：Reflow）
 

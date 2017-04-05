@@ -62,8 +62,8 @@ project
 ### webpack.config.js
 Webpack 2 的設定檔和舊版不同，要特別注意！
 {% highlight javascript %}
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   // 執行環境，即 webpack 指令作用的工作目錄（本機路徑）
@@ -71,7 +71,9 @@ module.exports = {
   context: path.join(__dirname, 'src'),
   // Entry（進入點）檔案路徑（基於 context）
   // Entry 即引入依賴其他模組的檔案
-  entry: ['./index.js'],
+  entry: [
+    './index.js'
+  ],
   // 輸出設定
   output: {
     // 輸出檔的目標位置（本機路徑）
@@ -90,17 +92,21 @@ module.exports = {
   // Loader 可以載入指定的資源，並進行輸出轉換
   module: {
     // Loaders 規則
-    rules: [{
-      // 表示作用在 *.js 檔案（正則表示法）
-      test: /\.js$/,
-      // 排除作用於 node_modules 目錄（正則表示法）
-      exclude: /node_modules/,
-      // 應用此規則的 Loaders
-      use: [{
-        // Loader 名稱在 Webpack 2 不可省略 '-loader' 後綴
-        loader: 'babel-loader'
-      }]
-    }]
+    rules: [
+      {
+        // 表示作用在 *.js 檔案（正則表示法）
+        test: /\.js$/,
+        // 排除作用於 node_modules 目錄（正則表示法）
+        exclude: /node_modules/,
+        // 應用此規則的 Loaders
+        use: [
+          {
+            // Loader 名稱在 Webpack 2 不可省略 '-loader' 後綴
+            loader: 'babel-loader'
+          }
+        ]
+      }
+    ]
   },
   // Webpack Dev Server 設定
   devServer: {
@@ -125,7 +131,7 @@ module.exports = {
     // Hot-Reload 時在瀏覽器 Console 顯示更新的檔案名稱
     new webpack.NamedModulesPlugin()
   ]
-};
+}
 {% endhighlight %}
 
 ### .babelrc
@@ -142,10 +148,12 @@ Babel 設定檔加上 ES6 轉譯規則：
 {% endhighlight %}
 
 ### package.json
-在 package.json 中的 `scripts` 加入：
+設定 package.json 中的 `scripts` 屬性（若未有此屬性可自行新增）值為：
 {% highlight json %}
-"start": "webpack-dev-server --progress --colors",
-"build": "webpack --progress --colors"
+{
+  "start": "webpack-dev-server --progress --colors",
+  "build": "webpack --progress --colors"
+}
 {% endhighlight %}
 方便我們使用 `npm run start`、`npm run build` 來執行自訂的指令：
 * `npm run start` 啟動 Webpack Dev Server
@@ -181,7 +189,7 @@ project
 除了 webpack.config.js 中的設定，index.js 也必須加上 HMR 的 API 呼叫：
 {% highlight javascript %}
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept()
 }
 {% endhighlight %}
 讓 HMR 偵測 index.js 所相依的模組。

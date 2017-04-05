@@ -139,10 +139,13 @@ Babel 設定檔加上 ES6 轉譯規則：
 {% highlight json %}
 {
   "presets": [
-    ["es2015", {
-      // 不將 ES2015 模組轉譯成 CommonJS 模組
-      "modules": false
-    }]
+    [
+      "es2015",
+      {
+        // 不將 ES2015 模組轉譯成 CommonJS 模組
+        "modules": false
+      }
+    ]
   ]
 }
 {% endhighlight %}

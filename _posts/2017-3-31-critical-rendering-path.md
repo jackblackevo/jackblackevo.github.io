@@ -85,3 +85,4 @@ img {
 ## 額外參考
 * [Google Developers Web Fundamentals - 關鍵轉譯路徑](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/?hl=zh-tw)
 * [30 天 Progressive Web App 學習筆記 - Critical Render Path](http://ithelp.ithome.com.tw/articles/10187285)
+* [Google Developers PageSpeed Tools Insights - Minimizing browser reflow](https://developers.google.com/speed/articles/reflow?hl=zh-tw)

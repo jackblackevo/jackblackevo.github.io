@@ -69,11 +69,11 @@ const webpack = require('webpack')
 
 // 將全部設定輸出為模組，供 Webpack 2 使用
 module.exports = {
-  // 執行環境，即 webpack 指令作用的工作目錄（本機路徑）
-  // __dirname 代表此專案（當前模組）的所在目錄
+  // 執行環境，即 webpack 指令要作用的工作目錄（本機路徑）
+  // __dirname 為此 Webpack 2 設定檔模組的所在目錄
   context: path.join(__dirname, 'src'),
   // Entry（進入點）檔案路徑（基於 context）
-  // Entry 即引入依賴其他模組的檔案
+  // Entry 即專案中引入依賴其他模組的檔案
   entry: [
     './index.js'
   ],

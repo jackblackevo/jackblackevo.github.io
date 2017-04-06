@@ -67,7 +67,7 @@ const webpack = require('webpack')
 
 module.exports = {
   // 執行環境，即 webpack 指令作用的工作目錄（本機路徑）
-  // __dirname 代表此設定檔（webpack.config.js）的所在目錄
+  // __dirname 代表此專案（當前的模組）的所在目錄
   context: path.join(__dirname, 'src'),
   // Entry（進入點）檔案路徑（基於 context）
   // Entry 即引入依賴其他模組的檔案
@@ -76,8 +76,8 @@ module.exports = {
   ],
   // 輸出設定
   output: {
-    // 輸出檔的目標位置（本機路徑）
-    path: path.join(__dirname, 'dist/js'),
+    // 輸出檔的目標位置（本機路徑，須為絕對路徑）
+    path: path.join(__dirname, 'dist', 'js'),
     // 輸出檔名
     filename: 'bundle.js',
     // 輸出檔於伺服器公開位置中的絕對路徑
@@ -110,8 +110,8 @@ module.exports = {
   },
   // Webpack Dev Server 設定
   devServer: {
-    // 伺服器根目錄位置（本機路徑）
-    contentBase: path.join(__dirname, 'dist'),
+    // 伺服器根目錄位置（本機路徑，基於 context）
+    contentBase: 'dist',
     // 開啟 inline mode（檔案有更新時自重整頁面）
     inline: true,
     // 開啟 Hot-Reload
@@ -202,3 +202,5 @@ if (module.hot) {
 * [Webpack - Configuration](https://webpack.js.org/configuration/)
 * [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/)
 * [Webpack - Hot Module Replacement - React](https://webpack.js.org/guides/hmr-react/#using-webpack-with-a-config)
+* [Node.js Documentation - path.join([...paths])](https://nodejs.org/api/path.html#path_path_join_paths)
+* [Node.js Documentation - __dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname)

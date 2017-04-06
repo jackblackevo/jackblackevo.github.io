@@ -67,6 +67,7 @@ const path = require('path')
 // 載入 webpack 模組
 const webpack = require('webpack')
 
+// 將全部設定輸出為模組，供 Webpack 2 使用
 module.exports = {
   // 執行環境，即 webpack 指令作用的工作目錄（本機路徑）
   // __dirname 代表此專案（當前模組）的所在目錄

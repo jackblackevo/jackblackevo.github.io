@@ -62,12 +62,14 @@ project
 ### webpack.config.js
 Webpack 2 的設定檔和舊版不同，要特別注意！
 {% highlight javascript %}
+// 載入 Node.js 的 path 模組
 const path = require('path')
+// 載入 webpack 模組
 const webpack = require('webpack')
 
 module.exports = {
   // 執行環境，即 webpack 指令作用的工作目錄（本機路徑）
-  // __dirname 代表此專案（當前的模組）的所在目錄
+  // __dirname 代表此專案（當前模組）的所在目錄
   context: path.join(__dirname, 'src'),
   // Entry（進入點）檔案路徑（基於 context）
   // Entry 即引入依賴其他模組的檔案

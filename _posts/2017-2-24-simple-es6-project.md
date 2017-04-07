@@ -123,6 +123,7 @@ module.exports = {
     hot: true,
     // 自動開啟瀏覽器
     open: true,
+    port: 9000,
     // 建議與 output.publicPath 一致
     // 若開啟 Hot-Reload，則必須與 output.publicPath 一致
     publicPath: '/js/'

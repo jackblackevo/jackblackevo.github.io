@@ -111,6 +111,8 @@ module.exports = {
       }
     ]
   },
+  // 產生原始碼映射表（Source Map），方便開發時除錯
+  devtool: 'cheap-module-eval-source-map',
   // Webpack Dev Server 設定
   devServer: {
     // 伺服器根目錄位置（本機路徑，基於 context）
@@ -208,7 +210,9 @@ if (module.hot) {
 * [Webpack - Concepts](https://webpack.js.org/concepts/)
 * [Webpack - Configuration](https://webpack.js.org/configuration/)
 * [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/)
+* [Webpack - Devtool](https://webpack.js.org/configuration/devtool/)
 * [Webpack - DevServer](https://webpack.js.org/configuration/dev-server/)
 * [Webpack - Hot Module Replacement - React](https://webpack.js.org/guides/hmr-react/#using-webpack-with-a-config)
 * [Node.js Documentation - path.join([...paths])](https://nodejs.org/api/path.html#path_path_join_paths)
 * [Node.js Documentation - __dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname)
+* [Source Map(原始碼映射表) - eddychang.me](http://eddychang.me/blog/javascript/76-source-map.html)

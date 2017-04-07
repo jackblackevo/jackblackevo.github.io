@@ -115,7 +115,7 @@ module.exports = {
             loader: 'babel-loader'
           },
           {
-            // 使用套件來自動加入 HMR 的 API 呼叫
+            // 使用套件來自動加入 Hot Module Replacement 的 API 呼叫
             loader: 'webpack-module-hot-accept'
           }
         ]

@@ -157,12 +157,12 @@ Babel 設定檔加上 ES6 轉譯規則：
 設定 package.json 中的 `scripts` 屬性（若未有此屬性可自行新增）值為：
 {% highlight json %}
 {
-  "start": "webpack-dev-server --progress --colors",
+  "dev": "webpack-dev-server --progress --colors",
   "build": "webpack --progress --colors"
 }
 {% endhighlight %}
-方便我們使用 `npm run start`、`npm run build` 來執行自訂的指令：
-* `npm run start` 啟動 Webpack Dev Server
+方便我們使用 `npm run dev`、`npm run build` 來執行自訂的指令：
+* `npm run dev` 啟動 Webpack Dev Server
 * `npm run build` 使用 Webpack 進行打包
 
 透過 `npm run` 實際呼叫的是安裝在專案中的 Webpack、Webpack Dev Server，而不是全域中的套件。

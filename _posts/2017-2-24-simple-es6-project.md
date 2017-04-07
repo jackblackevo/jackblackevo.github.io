@@ -126,7 +126,10 @@ module.exports = {
     port: 9000,
     // 建議與 output.publicPath 一致
     // 若開啟 Hot-Reload，則必須與 output.publicPath 一致
-    publicPath: '/js/'
+    publicPath: '/js/',
+    stats: {
+      colors: true
+    }
   },
   // 插件
   plugins: [
@@ -158,8 +161,8 @@ Babel 設定檔加上 ES6 轉譯規則：
 設定 package.json 中的 `scripts` 屬性（若未有此屬性可自行新增）值為：
 {% highlight json %}
 {
-  "dev": "webpack-dev-server --progress --colors",
-  "build": "webpack --progress --colors"
+  "dev": "webpack-dev-server --progress",
+  "build": "webpack --progress"
 }
 {% endhighlight %}
 方便我們使用 `npm run dev`、`npm run build` 來執行自訂的指令：
@@ -205,6 +208,7 @@ if (module.hot) {
 * [Webpack - Concepts](https://webpack.js.org/concepts/)
 * [Webpack - Configuration](https://webpack.js.org/configuration/)
 * [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/)
+* [Webpack - DevServer](https://webpack.js.org/configuration/dev-server/)
 * [Webpack - Hot Module Replacement - React](https://webpack.js.org/guides/hmr-react/#using-webpack-with-a-config)
 * [Node.js Documentation - path.join([...paths])](https://nodejs.org/api/path.html#path_path_join_paths)
 * [Node.js Documentation - __dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname)

@@ -45,13 +45,6 @@ $ npm install babel-core --save-dev
 $ npm install babel-preset-es2015 --save-dev
 {% endhighlight %}
 
-## 安裝 webpack-module-hot-accept 套件
-搭配 `--save-dev` 參數安裝至專案目錄中：
-{% highlight shell %}
-$ npm install webpack-module-hot-accept --save-dev
-{% endhighlight %}
-（此套件用途將於 Webpack 2 設定檔及 Hot-Reload 中介紹）
-
 ## 建立設定檔案
 現在專案目錄中多了 package.json 設定檔，以及放置安裝套件的 node_modules 目錄。接下來要在專案目錄下建立：webpack.config.js、.babelrc、.gitignore 設定檔。
 
@@ -113,10 +106,6 @@ module.exports = {
           {
             // Loader 名稱在 Webpack 2 不可省略 '-loader' 後綴
             loader: 'babel-loader'
-          },
-          {
-            // 使用套件來自動加入 Hot Module Replacement 的 API 呼叫
-            loader: 'webpack-module-hot-accept'
           }
         ]
       }
@@ -208,8 +197,8 @@ project
 
 ※bundle.js 為轉譯後產出的檔案
 
-### 開啟 Hot-Reload 支援（由套件自動加入）
-webpack-module-hot-accept 會幫我們在 index.js 中加入 HMR 的 API 呼叫：
+### 開啟 Hot-Reload 支援
+除了 webpack.config.js 中的設定，index.js 也必須加上 HMR 的 API 呼叫：
 {% highlight javascript %}
 if (module.hot) {
   module.hot.accept()

@@ -201,10 +201,16 @@ project
 除了 webpack.config.js 中的設定，index.js 也必須加上 HMR 的 API 呼叫：
 {% highlight javascript %}
 if (module.hot) {
-  module.hot.accept()
+  module.hot.accept('./es6module', () => {
+    // 設定當指定的模組（範例為 es6module.js）在 HMR 完成後要執行的事情
+    // 通常為重新讀取這個模組並更新網頁畫面
+  })
 }
 {% endhighlight %}
-讓 HMR 偵測 index.js 所相依的模組。
+讓 HMR 偵測 index.js 所相依的模組有更新檔案內容時，可以依我們的設定進行處理。
+
+## 完整範例專案
+本篇完整的範例專案可以在 GitHub 上看到：[simple-es6-webpack-project](https://github.com/jackblackevo/simple-es6-webpack-project)
 
 ## 額外參考
 * [Webpack - Concepts](https://webpack.js.org/concepts/)

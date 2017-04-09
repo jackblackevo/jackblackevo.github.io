@@ -221,10 +221,14 @@ if (module.hot) {
   module.hot.accept('./es6module', () => {
     // 設定當指定的模組（範例為 es6module.js）在 HMR 完成後要執行的事情
     // 通常為重新讀取這個模組並更新網頁畫面
+
   })
+
 }
 {% endhighlight %}
 讓 HMR 偵測 index.js 所相依的模組有更新檔案內容時，可以依我們的設定進行處理。
+
+若是 HMR 未被啟用，編譯器便會在 Webpack 進行編譯時移除所有 HMR 相關的程式碼（包括 `if (module.hot)` 以及包裹在其中的所有 code）。
 
 ## 完整範例專案
 本篇完整的範例專案可以在 GitHub 上看到：[simple-es6-webpack-project](https://github.com/jackblackevo/simple-es6-webpack-project)
@@ -236,6 +240,7 @@ if (module.hot) {
 * [Webpack - Devtool](https://webpack.js.org/configuration/devtool/)
 * [Webpack - DevServer](https://webpack.js.org/configuration/dev-server/)
 * [Webpack - Hot Module Replacement - React](https://webpack.js.org/guides/hmr-react/#using-webpack-with-a-config)
+* [Webpack - hot module replacement with webpack](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack)
 * [Node.js Documentation - path.join([...paths])](https://nodejs.org/api/path.html#path_path_join_paths)
 * [Node.js Documentation - __dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname)
 * [Source Map(原始碼映射表) - eddychang.me](http://eddychang.me/blog/javascript/76-source-map.html)

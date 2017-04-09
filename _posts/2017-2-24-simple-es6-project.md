@@ -226,9 +226,7 @@ if (module.hot) {
 
 }
 {% endhighlight %}
-讓 HMR 偵測 index.js 所相依的模組有更新檔案內容時，可以依我們的設定進行處理。
-
-若是 HMR 未被啟用，編譯器便會在 Webpack 進行編譯時移除所有 HMR 相關的程式碼（包括 `if (module.hot)` 以及包裹在其中的所有 code）。
+讓 HMR 偵測 index.js 所相依的模組有更新檔案內容時，可以依我們的設定進行處理。若是 HMR 未被啟用，則此段程式便不會執行。
 
 ## 完整範例專案
 本篇完整的範例專案可以在 GitHub 上看到：[simple-es6-webpack-project](https://github.com/jackblackevo/simple-es6-webpack-project)

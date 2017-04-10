@@ -68,6 +68,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 // Webpack 2 設定值
+// 定義開發與正式共用的設定值
 const webpackConfig = {
   // 執行環境，即 webpack 指令要作用的工作目錄（本機路徑）
   // __dirname 為此 Webpack 2 設定檔模組的所在目錄
@@ -110,17 +111,28 @@ const webpackConfig = {
         ]
       }
     ]
-  }
+  },
+  // 插件
+  plugins: [
+    // 宣告一個全域的常數並賦值，讓進入點及其相依的模組使用
+    new webpack.DefinePlugin({
+      // 將 Node.js 環境的 process.env.NODE_ENV 宣告為全域常數
+      // 讓瀏覽器環境也可以取用 process.env.NODE_ENV
+      // 實際上 DefinePlugin 是以直接替換文字的方式運作
+      // 所以賦值的時候，值若是字串則寫法必須特別處理
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
   // 若要編譯成正式產品，使用以下設定值：
-  // 插件
-  webpackConfig.plugins = [
+  // 加入插件
+  webpackConfig.plugins.push(
     // 最小化 JavaScript 檔案
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin()
-  ]
+  )
 
 } else {
   // 開發階段執行，則使用以下設定值：
@@ -146,13 +158,13 @@ if (process.env.NODE_ENV === 'production') {
       colors: true
     }
   }
-  // 插件
-  webpackConfig.plugins = [
+  // 加入插件
+  webpackConfig.plugins.push(
     // Hot Module Replacement（HMR）
     new webpack.HotModuleReplacementPlugin(),
     // Hot-Reload 時在瀏覽器 Console 顯示更新的檔案名稱
     new webpack.NamedModulesPlugin()
-  ]
+  )
 
 }
 
@@ -235,6 +247,7 @@ if (module.hot) {
 * [Webpack - Concepts](https://webpack.js.org/concepts/)
 * [Webpack - Configuration](https://webpack.js.org/configuration/)
 * [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/)
+* [Webpack - DefinePlugin](https://webpack.js.org/plugins/define-plugin/)
 * [Webpack - Devtool](https://webpack.js.org/configuration/devtool/)
 * [Webpack - DevServer](https://webpack.js.org/configuration/dev-server/)
 * [Webpack - Hot Module Replacement - React](https://webpack.js.org/guides/hmr-react/#using-webpack-with-a-config)

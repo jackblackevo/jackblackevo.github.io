@@ -30,12 +30,11 @@ $ npm install webpack --global
 $ npm install webpack-dev-server --global
 {% endhighlight %}
 
-再搭配 `--save-dev` 參數安裝至專案目錄中：
+再搭配 `--save-dev` 參數（待下方說明）安裝至專案目錄中：
 {% highlight shell %}
 $ npm install webpack --save-dev
 $ npm install webpack-dev-server --save-dev
 {% endhighlight %}
-`--save-dev` 同時也會於 package.json 中將安裝的套件加入為開發環境相依套件。只要有設定好相依套件的 package.json，即可使用 `npm install` 再次安裝所有開發環境套件。
 
 ## 安裝 Babel 及 ES6 支援
 搭配 `--save-dev` 參數安裝至專案目錄中：
@@ -44,6 +43,17 @@ $ npm install babel-loader --save-dev
 $ npm install babel-core --save-dev
 $ npm install babel-preset-es2015 --save-dev
 {% endhighlight %}
+
+## 相依套件
+`npm install` 的 `--save-dev` 參數除了安裝套件外，同時也會於 package.json 中將安裝的套件加入為開發環境相依套件（package.json 中的 `devDependencies` 屬性）。
+
+另外，如果專案中有使用外部套件（如：React），則可以使用 `--save` 參數來安裝並加入為正式環境相依套件（package.json 中的 `dependencies` 屬性）。
+
+`devDependencies` 與 `dependencies` 的差別在於：
+* `devDependencies`：僅開發時使用
+* `dependencies`：開發時期及正式產品皆須要使用
+
+只要有設定好相依套件屬性的 package.json，即可透過 `npm install` 再次安裝開發及正式環境依賴的所有套件。
 
 ## 建立設定檔案
 現在專案目錄中多了 package.json 設定檔，以及放置安裝套件的 node_modules 目錄。接下來要在專案目錄下建立：webpack.config.js、.babelrc、.gitignore 設定檔。

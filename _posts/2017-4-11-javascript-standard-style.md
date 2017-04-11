@@ -9,6 +9,11 @@ Lint 工具可以幫助我們以訂定好的規則來對程式碼進行檢查，
 
 JavaScript 的語法檢查工具有許多種，其中大部分都要事先進行相當多的規則設定。而 [JavaScript Standard Style](https://standardjs.com/)（StandardJS）是一個整理出目前 JS 社群中所流行 coding style 的 Lint 工具，採直接固定規則（不須、也不可自行設定），並且能夠自動修正不合規範的程式碼。
 
+## Flow 支援度
+由於 StandardJS 目前供 Webpack 使用的 standard-loader 對 [Flow](https://flow.org/) 的支援度不佳。我們可以改用 [ESLint](http://eslint.org/) 搭配 StandardJS 風格指引的方式，達到一模一樣的效果，並方便之後結合 Flow 工具。
+
+請參考：[ESLint](https://jackblackevo.github.io/eslint/)
+
 ## 安裝 StandardJS
 先將 StandardJS 安裝至全域中，以便我們使用 `standard` 指令：
 {% highlight shell %}

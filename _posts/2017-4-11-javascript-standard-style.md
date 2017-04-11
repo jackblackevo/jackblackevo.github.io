@@ -3,11 +3,11 @@ layout: post
 title: JavaScript Standard Style
 ---
 
-JavaScript 對程式碼的撰寫風格（coding style）沒有太多的規範，也因此容易寫出雜亂難以維護的程式。
+JavaScript 本身對程式碼的撰寫風格（coding style）並沒有太多的規範，也因此容易寫出雜亂而難以維護的程式。
 
-Lint 工具可以幫助我們以訂定好的規則來對程式碼進行檢查，除了能夠統一 code style，也可以標示出語法結構上潛在的問題，協助提升程式碼品質（code quality）。
+Lint 工具可以幫助我們以訂定好的規則來對程式碼進行檢查，除了能夠統一撰寫風格，也可以標示出語法結構上潛在的問題，協助提升程式碼品質（code quality）。
 
-JavaScript 的語法檢查工具有許多種，其中大部分都要事先進行相當多的規則設定。[JavaScript Standard Style](https://standardjs.com/)（StandardJS）是一個整理出目前 JS 社群流行 code style 的 Lint 工具，並且可自動修正不合規範的程式碼。
+JavaScript 的語法檢查工具有許多種，其中大部分都要事先進行相當多的規則設定。而 [JavaScript Standard Style](https://standardjs.com/)（StandardJS）是一個整理出目前 JS 社群中所流行 coding style 的 Lint 工具，採直接固定規則（不須、也不可自行設定），並且能夠自動修正不合規範的程式碼。
 
 ## 安裝 StandardJS
 先將 StandardJS 安裝至全域中，以便我們使用 `standard` 指令：

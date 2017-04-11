@@ -36,7 +36,7 @@ $ npm install standard --save-dev
 $ npm install standard-loader --save-dev
 {% endhighlight %}
 
-於 Webpack 2 設定檔中的 module.rules 加入模組處理規則：
+於 Webpack 2 設定檔中的 `module.rules` 加入模組處理規則：
 {% highlight javascript %}
 {
   // 設定為預先應用的規則（在其它規則前先作用）

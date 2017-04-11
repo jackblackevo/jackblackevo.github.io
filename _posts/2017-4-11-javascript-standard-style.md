@@ -31,7 +31,12 @@ vscode-standardjs 必須先於全域或專案開發環境中安裝好 StandardJS
 $ npm install standard --save-dev
 {% endhighlight %}
 
-再於 Webpack 2 設定檔中的 module.rules 加入模組處理規則：
+再安裝 [standard-loader](https://github.com/timoxley/standard-loader) 為專案開發環境相依套件：
+{% highlight shell %}
+$ npm install standard-loader --save-dev
+{% endhighlight %}
+
+於 Webpack 2 設定檔中的 module.rules 加入模組處理規則：
 {% highlight javascript %}
 {
   // 設定為預先應用的規則（在其它規則前先作用）
@@ -59,6 +64,5 @@ $ npm install standard --save-dev
 {% endhighlight %}
 
 ## 額外參考
-* [standard-loader](https://github.com/timoxley/standard-loader)
 * [eddychang.me - JavaScript裡的語句用分號結尾是個選項嗎](http://eddychang.me/blog/javascript/97-js-semicolon.html)
 * [建立基本的 ES6 專案](https://jackblackevo.github.io/simple-es6-project/)

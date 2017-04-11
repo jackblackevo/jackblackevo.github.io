@@ -281,4 +281,4 @@ if (module.hot) {
 * [Webpack - hot module replacement with webpack](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack)
 * [Node.js Documentation - path.join([...paths])](https://nodejs.org/api/path.html#path_path_join_paths)
 * [Node.js Documentation - __dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname)
-* [Source Map(原始碼映射表) - eddychang.me](http://eddychang.me/blog/javascript/76-source-map.html)
+* [eddychang.me - Source Map(原始碼映射表)](http://eddychang.me/blog/javascript/76-source-map.html)

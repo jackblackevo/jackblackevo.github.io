@@ -28,7 +28,14 @@ $ npm install standard --save-dev
 ## Visual Studio Code extension
 [Visual Studio Code](https://code.visualstudio.com/)（VSCode）可以再加裝 [vscode-standardjs](https://marketplace.visualstudio.com/items/chenxsan.vscode-standardjs) 插件，讓我們可以在撰寫程式碼時就即時看到檢查提示及可自動修正的選項。
 
-vscode-standardjs 必須先於全域或專案開發環境中安裝好 StandardJS，否則不會啟用。並且須到 VSCode 的「喜好設定 -> 設定」（settings.json）將 VSCode 內建的 JavaScript 驗證關閉。
+vscode-standardjs 必須先於全域或專案開發環境中安裝好 StandardJS，否則不會啟用。
+
+並且須到 VSCode 的「喜好設定 -> 設定」（settings.json）將 VSCode 內建的 JavaScript 驗證關閉：
+{% highlight json %}
+{
+  "javascript.validate.enable": false
+}
+{% endhighlight %}
 
 ## 搭配 Webpack 2
 先將 StandardJS 安裝為專案開發環境相依套件：

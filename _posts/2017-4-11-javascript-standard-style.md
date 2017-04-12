@@ -36,7 +36,7 @@ vscode-standardjs 必須先於全域或專案開發環境中安裝好 StandardJS
 $ npm install standard --save-dev
 {% endhighlight %}
 
-再安裝 [standard-loader](https://github.com/timoxley/standard-loader) 為專案開發環境相依套件：
+再安裝 [standard-loader](https://www.npmjs.com/package/standard-loader) 為專案開發環境相依套件：
 {% highlight shell %}
 $ npm install standard-loader --save-dev
 {% endhighlight %}

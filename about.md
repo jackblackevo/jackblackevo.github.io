@@ -1,15 +1,10 @@
 ---
 layout: page
-title: About
+title: 關於我
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+* 熱愛 Web 的小碼農
+* 第一次使用的瀏覽器是 Netscape
+* 見證兩次 Browser wars
+* 寫過 `<blink>` 和狀態列跑馬燈 XD

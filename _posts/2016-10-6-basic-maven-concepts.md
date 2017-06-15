@@ -8,9 +8,10 @@ title: Maven 基礎概念
 目前 Maven 3.3 必需在 JDK 1.7 以上的環境下執行。Oracle JDK for macOS 會在安裝時於 `/usr/bin` 下建立多個 symbolic link 指向安裝路徑中的指令執行檔，所以我們不必設定 `JAVA_HOME` 環境變數。
 
 在 macOS 下使用 Homebrew 安裝 Maven 只需要：
-{% highlight shell %}
+
+```bash
 $ brew install maven
-{% endhighlight %}
+```
 
 和 JDK 一樣，連 `M2_HOME` 環境變數都不用設定，因為 Homebrew 也已經自動在 `/usr/local/bin` 下建立 symbolic link 指向安裝路徑了（自動執行 `brew link` 指令）。
 
@@ -44,14 +45,16 @@ Maven 有三個「獨立」建構（build）的生命週期：
 
 ### Phase
 Maven 的每個生命週期都是由不同的階段（Phase）所組成。執行某一階段的動作時，在這個階段前的所有階段都會被執行。例如：
-{% highlight shell %}
+
+```bash
 $ mvn clean
-{% endhighlight %}
+```
 
 就等同於：
-{% highlight shell %}
+
+```bash
 $ mvn pre-clean clean
-{% endhighlight %}
+```
 
 而每一個 Phase 都會對應（binding）一或多個 Goals（Plugins 的功能）。
 
@@ -79,9 +82,10 @@ Maven 在執行的順序會是：
 
 大部分 Plugins 通常會有一個 `help` 的 Goal，可以查看該 Plugin 的說明。
 如查看 `complier` 的說明，可使用以下指令：
-{% highlight shell %}
+
+```bash
 $ mvn compiler:help
-{% endhighlight %}
+```
 
 #### Goals
 每個 Plugin 都會提供一或多個 Goals（功能），而每一個 Goal 各自代表一個獨立的任務，是 Maven 執行工作的最小單位。例如：
@@ -91,22 +95,24 @@ $ mvn compiler:help
 即表示 `compiler` 這個 Plugin 下的 `compile` 功能（Goal）。
 
 若要單獨執行 Goal，可以使用：
-{% highlight shell %}
+
+```bash
 $ mvn compiler:compile
-{% endhighlight %}
+```
 
 ## 聚合與繼承
 這裡要注意的是：聚合與繼承是兩個獨立的概念，彼此互不衝突，也可以同時使用。
 
 ### 聚合
 在父模組 POM 中，將子模組組織好，Maven 會在執行時尋找子模組：
-{% highlight xml %}
+
+```xml
 <modules>
   <!-- 子模組的「路徑」 -->
   <module>childA</module>
   <module>childB</module>
 </modules>
-{% endhighlight %}
+```
 
 父模組 POM 的 `<package>` 值為「pom」。
 
@@ -123,7 +129,8 @@ $ mvn compiler:compile
 
 ### 繼承
 在子 POM 中，指向父模組 POM：
-{% highlight xml %}
+
+```xml
 <parent>
   <groupId>idv.jackblackevo.mavenTest</groupId>
   <artifactId>ProjectName</artifactId>
@@ -131,7 +138,7 @@ $ mvn compiler:compile
   <!— 若父 POM 與子 POM 的目錄是父子關係時可省略 relativePath -->
   <relativePath>../pom.xml</relativePath>
 </parent>
-{% endhighlight %}
+```
 
 子 POM 中的設定通常會取代父 POM 的相同設定，但一些特殊的設定是與父 POM 合併而不是取代：
 

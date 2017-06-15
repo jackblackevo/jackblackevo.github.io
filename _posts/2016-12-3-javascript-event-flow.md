@@ -54,10 +54,10 @@ __特別注意：__
 ### EventTarget
 
 #### addEventListener()、removeEventListener()
-{% highlight javascript %}
+```javascript
 EventTarget.addEventListener(type, listener[, useCapture])
 EventTarget.removeEventListener(type, listener[, useCapture])
-{% endhighlight %}
+```
 
 * `type`：事件名稱
 * `listener`：監聽器，也就是事件處理函式
@@ -66,9 +66,9 @@ EventTarget.removeEventListener(type, listener[, useCapture])
 冒泡階段和捕捉階段的監聽器是各自獨立的。假如一個監聽器分別在同一個物件上註冊了冒泡階段與捕捉階段，若要移除，也必須分別移除。
 
 #### dispatchEvent()
-{% highlight javascript %}
+```javascript
 EventTarget.dispatchEvent(event)
-{% endhighlight %}
+```
 
 * `event`：要被觸發的事件物件
 

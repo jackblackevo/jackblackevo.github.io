@@ -6,7 +6,8 @@ title: Java 存取控制與多型
 Java 的存取修飾字 `private` 限制了類別的成員僅可於同一個類別內訪問，但是 PTT 上的[這個問題](http://www.ptt.cc/bbs/java/M.1475931276.A.45D.html)怎麼會發生子類別實體卻可以呼叫父類別私有方法的情況呢？
 
 來看看這個範例：
-{% highlight java %}
+
+```java
 class ChildClass extends FatherClass {
   public void mehtodA() {
     System.out.println("it's ChildClass");
@@ -26,13 +27,14 @@ public class FatherClass {
     objDeclaredByChild.mehtodA();
   }
 }
-{% endhighlight %}
+```
 
 輸出結果：
-{% highlight text %}
+
+```
 it's FatherClass
 it's ChildClass
-{% endhighlight %}
+```
 
 這裡有兩個問題：
 
@@ -52,7 +54,8 @@ Java 操作物件時是以宣告型別為主，在建立物件實體時會先建
 
 ## 問題二
 存取修飾字的限定對象是「型別」，`private` 在同個型別內都是可以叫用的，不論是由同類別的其它方法呼叫：
-{% highlight java %}
+
+```java
 privateMethod();
 // 等同於
 this.privateMethod();
@@ -60,14 +63,15 @@ this.privateMethod();
 privateStaticMethod();
 // 等同於
 ClassName.privateStaticMethod();
-{% endhighlight %}
+```
 
 還是由此類別的物件實體呼叫：
-{% highlight java %}
+
+```java
 obj.privateMethod();
 // 或是
 obj.privateStaticMethod();
-{% endhighlight %}
+```
 
 而程式進入點（`main` 方法）被定義在 `FatherClass` 類別中，`objDeclaredByFather` 又是以 `FatherClass` 宣告的 `ChildClass` 物件實體。所以滿足了存取限制的條件，因此 `objDeclaredByFather.mehtodA()` 可以正確編譯並執行。若是把 `main` 方法定義在 `ChildClass`，就會因為存取限制而無法呼叫了。
 

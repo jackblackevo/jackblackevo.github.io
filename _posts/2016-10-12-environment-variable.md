@@ -13,14 +13,16 @@ title: 環境變數
 * 輸入指令執行檔的完整路徑
 
 macOS、Linux 可以使用以下指令來查看目前的環境變數值：
-{% highlight shell %}
+
+```bash
 $ echo $PATH
-{% endhighlight %}
+```
 
 Windows 可以使用：
-{% highlight shell %}
+
+```bash
 > echo %path%
-{% endhighlight %}
+```
 
 _小提示：macOS、Linux 對大小寫敏感，Windows 則是大小寫不敏感（不論大小寫皆視為相同）。_
 

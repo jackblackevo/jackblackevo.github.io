@@ -7,7 +7,7 @@ title: BULK INSET
 
 不知道那就自己動手寫[拋棄式玩具](http://online.ithome.com.tw/itadm/article.php?c=79755&s=2)來測試看看吧！
 
-{% highlight sql %}
+```sql
 -- 以 DECLARE 來宣告變數（也可以同時賦值） --
 DECLARE
 @tableName as varchar(150) = 'dbo.TEST_TABLE',
@@ -53,7 +53,7 @@ ERRORFILE = ' + '''' + @errorFileName + '''' + ')';
 
 -- 執行 BULK INERT --
 EXECUTE (@sqlStmt);
-{% endhighlight %}
+```
 
 我們可以發現：
 
@@ -62,13 +62,13 @@ EXECUTE (@sqlStmt);
 
 假如有 100000 筆資料，
 
-{% highlight sql %}
+```sql
 -- 每 1000 筆 commit 一次 --
 BATCHESIZE = 1000,
 -- 若其中一次 commit 錯超過 10 筆，則全部 insert（100000 筆）都會 rollback --
 -- MAXERRORS 只有在小於或等於 BATCHESIZE 時才有意義 --
 MAXERRORS = 10,
-{% endhighlight %}
+```
 
 所以全部最多可以允許 (MAXERRORS = 10) * [100000 筆資料 / (BATCHESIZE = 1000)] 筆資料錯誤。
 

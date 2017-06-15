@@ -10,39 +10,44 @@ ECMAScript 2015 正式版本已經推出一年多了，雖然各大瀏覽器尚�
 * dist 為開發完畢時要發布的檔案所在目錄，放置 HTML、CSS 以及轉譯後 JavaScript
 * src 則是撰寫 ES6 的開發目錄
 
-{% highlight text %}
+```
 project
 ├── dist
 └── src
-{% endhighlight %}
+```
 
 ## 建立 NPM 專案
 於專案目中輸入指令：
-{% highlight shell %}
+
+```bash
 $ npm init
-{% endhighlight %}
+```
+
 依提示說明的步驟建立 package.json 設定檔。
 
 ## 安裝 Webpack 及開發伺服器
 這裡我們直接安裝 Webpack 2，先使用 `npm install --global` 將 Webpack、Webpack Dev Server 安裝至全域中，以便我們使用 `webpack` 指令（已安裝可省略）：
-{% highlight shell %}
+
+```bash
 $ npm install webpack --global
 $ npm install webpack-dev-server --global
-{% endhighlight %}
+```
 
 再搭配 `--save-dev` 參數（待下方說明）安裝至專案目錄中：
-{% highlight shell %}
+
+```bash
 $ npm install webpack --save-dev
 $ npm install webpack-dev-server --save-dev
-{% endhighlight %}
+```
 
 ## 安裝 Babel 及 ES6 支援
 搭配 `--save-dev` 參數安裝至專案目錄中：
-{% highlight shell %}
+
+```bash
 $ npm install babel-loader --save-dev
 $ npm install babel-core --save-dev
 $ npm install babel-preset-es2015 --save-dev
-{% endhighlight %}
+```
 
 ## 相依套件
 `npm install` 的 `--save-dev` 參數除了安裝套件外，同時也會於 package.json 中將安裝的套件加入為開發環境相依套件（package.json 中的 `devDependencies` 屬性）。
@@ -58,7 +63,7 @@ $ npm install babel-preset-es2015 --save-dev
 ## 建立設定檔案
 現在專案目錄中多了 package.json 設定檔，以及放置安裝套件的 node_modules 目錄。接下來要在專案目錄下建立：webpack.config.js、.babelrc、.gitignore 設定檔。
 
-{% highlight text %}
+```
 project
 ├── dist
 ├── src
@@ -67,11 +72,12 @@ project
 ├── .gitignore
 ├── package.json
 └── webpack.config.js
-{% endhighlight %}
+```
 
 ### webpack.config.js
 Webpack 2 的設定檔和舊版不同，要特別注意！
-{% highlight javascript %}
+
+```javascript
 // 載入 Node.js 的 path 模組
 const path = require('path')
 // 載入 webpack 模組
@@ -196,11 +202,12 @@ if (process.env.NODE_ENV === 'production') {
 // 將全部設定輸出為 Node.js 模組，供 Webpack 2 使用
 module.exports = webpackConfig
 
-{% endhighlight %}
+```
 
 ### .babelrc
 Babel 設定檔加上 ES6 轉譯規則：
-{% highlight json %}
+
+```json
 {
   "presets": [
     [
@@ -213,16 +220,18 @@ Babel 設定檔加上 ES6 轉譯規則：
     ]
   ]
 }
-{% endhighlight %}
+```
 
 ### package.json
 設定 package.json 中的 `scripts` 屬性（若未有此屬性可自行新增）值為：
-{% highlight json %}
+
+```json
 {
   "dev": "webpack-dev-server --progress",
   "build": "NODE_ENV=production webpack --progress"
 }
-{% endhighlight %}
+```
+
 方便我們使用 `npm run dev`、`npm run build` 來執行自訂的指令：
 * `npm run dev` 啟動 Webpack Dev Server
 * `npm run build` 使用 Webpack 進行編譯打包
@@ -235,7 +244,7 @@ Babel 設定檔加上 ES6 轉譯規則：
 ## 完整專案結構
 完成所有設定之後，便可以將 HTML、CSS 置於 dist 中，並在 src 開始撰寫 ES6 程式。
 
-{% highlight text %}
+```
 project
 ├── dist
 │    ├── css
@@ -249,7 +258,7 @@ project
 ├── .gitignore
 ├── package.json
 └── webpack.config.js
-{% endhighlight %}
+```
 
 ※bundle.js 為轉譯後產出的檔案
 

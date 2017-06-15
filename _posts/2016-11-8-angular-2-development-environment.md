@@ -11,14 +11,14 @@ title: Angular 2 開發環境
 ## angular-cli 錯誤
 
 ### 錯誤訊息：
-{% highlight text %}
+```
 It seems like you're using a project generated using an old version of the Angular CLI.
 The latest CLI now uses webpack and includes a lot of improvements, include a simpler
 workflow, a faster build and smaller bundles.
 
 To get more info, including a step-by-step guide to upgrade the CLI, follow this link:
 https://github.com/angular/angular-cli/wiki/Upgrading-from-Beta.10-to-Beta.14
-{% endhighlight %}
+```
 
 ### 發生原因：
 工作目錄被視為舊版 angular-cli 所產生的專案，可尋找該目錄或其父目錄中的 node_modules 資料夾，將此資料夾刪除即可。
@@ -26,9 +26,9 @@ https://github.com/angular/angular-cli/wiki/Upgrading-from-Beta.10-to-Beta.14
 -----------
 
 ### 錯誤訊息：
-{% highlight text %}
+```
 You cannot use the new command inside an angular-cli project.
-{% endhighlight %}
+```
 
 ### 發生原因：
 同上一案例，可尋找 package.json 刪除之。

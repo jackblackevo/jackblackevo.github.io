@@ -26,7 +26,7 @@ title: 關鍵轉譯路徑
 * DOM 不會馬上建立完畢，而是逐步建立
 * 在建立 DOM 時，遇到需要的資源（JavaScript、CSS、圖片等）便同時發出請求取得相關資源
 
-{% highlight html %}
+```xml
 <!DOCTYPE html>
 <html lang="zh-TW">
   <head>
@@ -44,7 +44,7 @@ title: 關鍵轉譯路徑
     <script src="script.js"></script>
   </body>
 </html>
-{% endhighlight %}
+```
 
 ![Document Object Model](/assets/images/dom.png)
 
@@ -53,7 +53,7 @@ title: 關鍵轉譯路徑
 * CSSOM 中只有 CSS 樣式規則，並不包含 HTML 元素
 * 在 CSSOM 建立前，JavaScript 是無法執行的（除非外部 JS 以 `async` 方式載入，或 JS 較 CSS 先行引入）
 
-{% highlight css %}
+```css
 p {
   color: red;
 }
@@ -69,7 +69,7 @@ div span {
 img {
   float: right;
 }
-{% endhighlight %}
+```
 
 ![CSS Object Model](/assets/images/cssom.png)
 

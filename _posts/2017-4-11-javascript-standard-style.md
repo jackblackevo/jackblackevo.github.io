@@ -16,14 +16,16 @@ JavaScript 的語法檢查工具有許多種，其中大部分都要事先進行
 
 ## 安裝 StandardJS
 先將 StandardJS 安裝至全域中，以便我們使用 `standard` 指令：
-{% highlight shell %}
+
+```bash
 $ npm install standard --global
-{% endhighlight %}
+```
 
 安裝為專案開發環境相依套件：
-{% highlight shell %}
+
+```bash
 $ npm install standard --save-dev
-{% endhighlight %}
+```
 
 ## Visual Studio Code extension
 [Visual Studio Code](https://code.visualstudio.com/)（VSCode）可以再加裝 [vscode-standardjs](https://marketplace.visualstudio.com/items/chenxsan.vscode-standardjs) 插件，讓我們可以在撰寫程式碼時就即時看到檢查提示及可自動修正的選項。
@@ -31,25 +33,29 @@ $ npm install standard --save-dev
 vscode-standardjs 必須先於全域或專案開發環境中安裝好 StandardJS，否則不會啟用。
 
 並且須到 VSCode 的「喜好設定 -> 設定」（settings.json）將 VSCode 內建的 JavaScript 驗證關閉：
-{% highlight json %}
+
+```json
 {
   "javascript.validate.enable": false
 }
-{% endhighlight %}
+```
 
 ## 搭配 Webpack 2
 先將 StandardJS 安裝為專案開發環境相依套件：
-{% highlight shell %}
+
+```bash
 $ npm install standard --save-dev
-{% endhighlight %}
+```
 
 再安裝 [standard-loader](https://www.npmjs.com/package/standard-loader) 為專案開發環境相依套件：
-{% highlight shell %}
+
+```bash
 $ npm install standard-loader --save-dev
-{% endhighlight %}
+```
 
 於 Webpack 2 設定檔中的 `module.rules` 加入模組處理規則：
-{% highlight javascript %}
+
+```javascript
 {
   // 設定為預先應用的規則（在其它規則前先作用）
   enforce: 'pre',
@@ -73,7 +79,7 @@ $ npm install standard-loader --save-dev
     }
   ]
 }
-{% endhighlight %}
+```
 
 ## 額外參考
 * [eddychang.me - JavaScript裡的語句用分號結尾是個選項嗎](http://eddychang.me/blog/javascript/97-js-semicolon.html)

@@ -28,7 +28,7 @@ title: 關鍵轉譯路徑
 
 ```xml
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0">

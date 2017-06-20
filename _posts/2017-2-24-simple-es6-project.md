@@ -33,7 +33,7 @@ $ npm install webpack --global
 $ npm install webpack-dev-server --global
 ```
 
-※`npm install` 可偷懶使用 `npm i`
+※`npm install` 可偷懶成 `npm i`
 
 再搭配 `--save-dev` 或 `-D` 參數（待下方說明）安裝至專案目錄中：
 
@@ -299,4 +299,5 @@ if (module.hot) {
 * [Node.js Documentation - path.join([...paths])](https://nodejs.org/api/path.html#path_path_join_paths)
 * [Node.js Documentation - __dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname)
 * [eddychang.me - Source Map(原始碼映射表)](http://eddychang.me/blog/javascript/76-source-map.html)
-* [说说 npm 5 的新坑 - 老雷的实验室](https://mp.weixin.qq.com/s?__biz=MjM5MDcyMzIwNQ==&mid=2447503211&idx=1&sn=ace8556f50d9e024ac961a35a81a6ed7&chksm=b25532818522bb9763fd079aec1aec45e5797174dde6f4a082eed21aed34504be3f69138600d#rd)
+* [The npm Blog - v5.0.0](http://blog.npmjs.org/post/161081169345/v500)
+* [老雷的实验室 - 说说 npm 5 的新坑](https://mp.weixin.qq.com/s?__biz=MjM5MDcyMzIwNQ==&mid=2447503211&idx=1&sn=ace8556f50d9e024ac961a35a81a6ed7&chksm=b25532818522bb9763fd079aec1aec45e5797174dde6f4a082eed21aed34504be3f69138600d#rd)

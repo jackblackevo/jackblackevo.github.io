@@ -233,12 +233,22 @@ Babel 設定檔加上 ES6 轉譯規則：
 ```
 
 ### package.json
+#### 跨平台 NODE_ENV 環境變數
+為了讓 Windows、macOS、Linux 都可以正確設定 Node.js 的 NODE_ENV 環境變數，我們使用 [cross-env](https://www.npmjs.com/package/cross-env) 來統一解決。
+
+將 cross-env 安裝為專案開發環境相依套件：
+
+```bash
+$ npm install cross-env --save-dev
+```
+
+#### npm-scripts
 設定 package.json 中的 `scripts` 屬性（若未有此屬性可自行新增）值為：
 
 ```json
 {
   "dev": "webpack-dev-server --progress",
-  "build": "NODE_ENV=production webpack --progress"
+  "build": "cross-env NODE_ENV=production webpack --progress"
 }
 ```
 

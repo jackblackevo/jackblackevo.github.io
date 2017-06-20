@@ -26,14 +26,16 @@ $ npm init
 依提示說明的步驟建立 package.json 設定檔。
 
 ## 安裝 Webpack 及開發伺服器
-這裡我們直接安裝 Webpack 2，先使用 `npm install --global` 將 Webpack、Webpack Dev Server 安裝至全域中，以便我們使用 `webpack` 指令（已安裝可省略）：
+這裡我們直接安裝 Webpack 3，先使用 `npm install` 加上 `--global` 或 `-g` 參數將 Webpack、Webpack Dev Server 安裝至全域中，以便我們使用 `webpack` 指令（已安裝可省略）：
 
 ```bash
 $ npm install webpack --global
 $ npm install webpack-dev-server --global
 ```
 
-再搭配 `--save-dev` 參數（待下方說明）安裝至專案目錄中：
+※`npm install` 可偷懶使用 `npm i`
+
+再搭配 `--save-dev` 或 `-D` 參數（待下方說明）安裝至專案目錄中：
 
 ```bash
 $ npm install webpack --save-dev
@@ -54,14 +56,20 @@ $ npm install babel-preset-es2015 --save-dev
 
 另外，如果專案中有使用外部套件（如：React），則可以使用 `--save` 參數來安裝並加入為正式環境相依套件（package.json 中的 `dependencies` 屬性）。
 
+※從 NPM 5 開始，`npm install` 預設即安裝為正式環境相依套件，因此可省略 `--save` 參數
+
 `devDependencies` 與 `dependencies` 的差別在於：
 * `devDependencies`：僅開發時使用
 * `dependencies`：開發時期及正式產品皆須要使用
 
 只要有設定好相依套件屬性的 package.json，即可透過 `npm install` 再次安裝開發及正式環境依賴的所有套件。
 
+※從 NPM 5 開始，會優先以 package-lock.json 檔案中記錄的套件資訊來安裝
+
 ## 建立設定檔案
 現在專案目錄中多了 package.json 設定檔，以及放置安裝套件的 node_modules 目錄。接下來要在專案目錄下建立：webpack.config.js、.babelrc、.gitignore 設定檔。
+
+※從 NPM 5 開始，會將 node_modules 目錄中所有套件的相關資訊記錄在 package-lock.json。未來若要更新套件必須使用 `npm install package-name@version` 來指定版本，NPM 會自動維護 package-lock.json 檔案
 
 ```
 project
@@ -70,12 +78,13 @@ project
 ├── node_modules
 ├── .babelrc
 ├── .gitignore
+├── package-lock.json
 ├── package.json
 └── webpack.config.js
 ```
 
 ### webpack.config.js
-Webpack 2 的設定檔和舊版不同，要特別注意！
+Webpack 在 version 2 之後的設定檔與舊版不同，要特別注意！
 
 ```javascript
 // 載入 Node.js 的 path 模組
@@ -83,12 +92,12 @@ const path = require('path')
 // 載入 webpack 模組
 const webpack = require('webpack')
 
-// Webpack 2 設定值
+// Webpack 設定值
 // 定義開發與正式共用的設定值
 const webpackConfig = {
   // 專案根目錄路徑（本機路徑，須為絕對路徑）
   // 預設值為 webpack 指令作用的工作目錄（current working directory, CWD）
-  // __dirname 為此 Webpack 2 設定檔模組的所在目錄
+  // __dirname 為此 Webpack 設定檔模組的所在目錄
   context: path.join(__dirname, 'src'),
   // Entry（進入點）檔案路徑（基於 context）
   // 專案應用程式會由 Entry 啟動，並引入依賴模組
@@ -135,7 +144,7 @@ const webpackConfig = {
         // Loader 最後會將資源輸出為字串，Webapck 再包裝成 JavaScript 模組
         use: [
           {
-            // Loader 名稱在 Webpack 2 不可省略 '-loader' 後綴
+            // Loader 名稱在 Webpack 2 之後不可省略 '-loader' 後綴
             loader: 'babel-loader'
           }
         ]
@@ -199,7 +208,7 @@ if (process.env.NODE_ENV === 'production') {
   )
 }
 
-// 將全部設定輸出為 Node.js 模組，供 Webpack 2 使用
+// 將全部設定輸出為 Node.js 模組，供 Webpack 使用
 module.exports = webpackConfig
 
 ```
@@ -214,7 +223,7 @@ Babel 設定檔加上 ES6 轉譯規則：
       "es2015",
       {
         // 不將 ES2015 模組轉譯成 CommonJS 模組
-        // （Webpack 2 已支援 ES6 模組）
+        // （Webpack 2 開始已支援 ES6 模組）
         "modules": false
       }
     ]
@@ -284,8 +293,10 @@ if (module.hot) {
 * [Webpack - DefinePlugin](https://webpack.js.org/plugins/define-plugin/)
 * [Webpack - Devtool](https://webpack.js.org/configuration/devtool/)
 * [Webpack - DevServer](https://webpack.js.org/configuration/dev-server/)
-* [Webpack - Hot Module Replacement - React](https://webpack.js.org/guides/hmr-react/#using-webpack-with-a-config)
+* [Webpack - Concepts: Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/)
+* [Webpack  - Guides: Hot Module Replacement](https://webpack.js.org/guides/hot-module-replacement/)
 * [Webpack - hot module replacement with webpack](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack)
 * [Node.js Documentation - path.join([...paths])](https://nodejs.org/api/path.html#path_path_join_paths)
 * [Node.js Documentation - __dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname)
 * [eddychang.me - Source Map(原始碼映射表)](http://eddychang.me/blog/javascript/76-source-map.html)
+* [说说 npm 5 的新坑 - 老雷的实验室](https://mp.weixin.qq.com/s?__biz=MjM5MDcyMzIwNQ==&mid=2447503211&idx=1&sn=ace8556f50d9e024ac961a35a81a6ed7&chksm=b25532818522bb9763fd079aec1aec45e5797174dde6f4a082eed21aed34504be3f69138600d#rd)

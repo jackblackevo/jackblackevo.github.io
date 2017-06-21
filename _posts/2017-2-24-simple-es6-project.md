@@ -288,14 +288,16 @@ project
 
 ### 開啟 Hot-Reload 支援
 除了 webpack.config.js 中的設定，index.js 也必須加上 HMR 的 API 呼叫：
-{% highlight javascript %}
+
+```javascript
 if (module.hot) {
   module.hot.accept('./es6module', () => {
     // 設定當指定的模組（範例為 es6module.js）在 HMR 完成後要執行的事情
     // 通常為重新讀取這個模組並更新網頁畫面
   })
 }
-{% endhighlight %}
+```
+
 讓 HMR 偵測 index.js 所相依的模組有更新檔案內容時，可以依我們的設定進行處理。若是 HMR 未被啟用，則此段程式便不會執行。
 
 ## 完整範例專案

@@ -32,7 +32,7 @@ $ npm install webpack --global
 $ npm install webpack-dev-server --global
 ```
 
-※`npm install` 可偷懶成 `npm i`
+※`npm install` 可偷懶簡寫成 `npm i`
 
 再搭配 `--save-dev` 或 `-D` 參數（待下方說明）安裝至專案目錄中：
 
@@ -49,7 +49,7 @@ $ npm install html-webpack-plugin --save-dev
 ```
 
 ## 安裝 Babel 及 ES6 支援
-搭配 `--save-dev` 參數安裝至專案目錄中：
+搭配 `--save-dev` 或 `-D` 參數安裝至專案目錄中：
 
 ```bash
 $ npm install babel-loader --save-dev
@@ -58,7 +58,7 @@ $ npm install babel-preset-es2015 --save-dev
 ```
 
 ## 相依套件
-`npm install` 的 `--save-dev` 參數除了安裝套件外，同時也會於 package.json 中將安裝的套件加入為開發環境相依套件（package.json 中的 `devDependencies` 屬性）。
+`npm install` 的 `--save-dev` 參數（簡寫為 `-D`）除了安裝套件外，同時也會於 package.json 中將安裝的套件加入為開發環境相依套件（package.json 中的 `devDependencies` 屬性）。
 
 另外，如果專案中有使用外部套件（如：React），則可以使用 `--save` 參數來安裝並加入為正式環境相依套件（package.json 中的 `dependencies` 屬性）。
 

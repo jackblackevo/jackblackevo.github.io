@@ -6,13 +6,12 @@ title: 建立基本的 ES6 專案
 ECMAScript 2015 正式版本已經推出一年多了，雖然各大瀏覽器尚未完全支援，但是我們仍可以透過 NPM 建立專案，再搭配 Webpack、Babel 等工具來輔助開發。
 
 ## 建立專案目錄
-建立專案專案目錄，並建立子目錄 dist、src：
+建立專案專案目錄，並建立子目錄 src：
 * dist 為開發完畢時要發布的檔案所在目錄，放置 HTML、CSS 以及轉譯後 JavaScript
 * src 則是撰寫 ES6 的開發目錄
 
 ```
 project
-├── dist
 └── src
 ```
 
@@ -40,6 +39,13 @@ $ npm install webpack-dev-server --global
 ```bash
 $ npm install webpack --save-dev
 $ npm install webpack-dev-server --save-dev
+```
+
+## 安裝 HtmlWebpackPlugin
+搭配 `--save-dev` 或 `-D` 參數安裝至專案目錄中：
+
+```bash
+$ npm install html-webpack-plugin --save-dev
 ```
 
 ## 安裝 Babel 及 ES6 支援
@@ -73,7 +79,6 @@ $ npm install babel-preset-es2015 --save-dev
 
 ```
 project
-├── dist
 ├── src
 ├── node_modules
 ├── .babelrc
@@ -91,6 +96,8 @@ Webpack 在 version 2 之後的設定檔與舊版不同，要特別注意！
 const path = require('path')
 // 載入 webpack 模組
 const webpack = require('webpack')
+// 載入 HtmlWebpackPlugin 插件
+const htmlWebpackPlugin = require('html-webpack-plugin')
 
 // Webpack 設定值
 // 定義開發與正式共用的設定值
@@ -102,18 +109,18 @@ const webpackConfig = {
   // Entry（進入點）檔案路徑（基於 context）
   // 專案應用程式會由 Entry 啟動，並引入依賴模組
   entry: {
-    index: './index.js'
+    index: './js/index.js'
   },
   // 輸出設定
   output: {
     // 輸出檔的目標位置（本機路徑，須為絕對路徑）
-    path: path.join(__dirname, 'dist', 'js'),
-    // 輸出檔名
-    filename: 'bundle.js',
+    path: path.join(__dirname, 'dist'),
+    // 輸出檔名（可包含路徑）
+    filename: 'js/bundle.js',
     // 輸出檔於伺服器公開位置中的絕對路徑
     // 開啟 Hot-Reload 時，此選項為必要設定
     // 因 Hot Module Replacement 須由此位置檢查更新的檔案
-    publicPath: '/js/'
+    publicPath: '/'
   },
   // 模組設定
   // Webpack 將專案中所有的資源（asset）檔案皆視為模組
@@ -160,6 +167,13 @@ const webpackConfig = {
       // 實際上 DefinePlugin 是以直接替換文字的方式運作
       // 所以賦值的時候，值若是字串則寫法必須特別處理
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    // 動態產生 HTML 並自動引入輸出後的 Entry 檔案
+    new htmlWebpackPlugin({
+      // 依據的模板
+      template: './index.html',
+      // 要引入的 Entry 檔案名稱
+      chunks: ['index']
     })
   ]
 }
@@ -198,7 +212,7 @@ if (process.env.NODE_ENV === 'production') {
     // 記憶體中的檔案，路徑會對應 devServer.publicPath 所設定的位置
     // 建議與 output.publicPath 一致
     // 若開啟 Hot-Reload，則必須與 output.publicPath 一致
-    publicPath: '/js/',
+    publicPath: '/',
     stats: {
       colors: true
     }
@@ -265,17 +279,20 @@ $ npm install cross-env --save-dev
 專案相依套件的安裝目錄（node_modules）以及開發時所產生的檔案，能在 .gitignore 中設定讓 Git 排除，可以直接至 [gitignore.io](https://www.gitignore.io/) 取得製作好的[設定檔](https://www.gitignore.io/api/node)。
 
 ## 完整專案結構
-完成所有設定之後，便可以將 HTML、CSS 置於 dist 中，並在 src 開始撰寫 ES6 程式。
+完成所有設定之後，便可以將 HTML、CSS 置於 src 中，並在 src/js 開始撰寫 ES6 程式。
 
 ```
 project
-├── dist
+├── (dist)
 │    ├── css
 │    ├── js
-│    │    └── (bundle.js)
+│    │    └── bundle.js
 │    └── index.html
 ├── src
-│    └── index.js
+│    ├── css
+│    ├── js
+│    │    └── index.js
+│    └── index.html
 ├── node_modules
 ├── .babelrc
 ├── .gitignore
@@ -284,7 +301,7 @@ project
 └── webpack.config.js
 ```
 
-※bundle.js 為轉譯後產出的檔案
+※dist 為輸出目錄，其中的 bundle.js 為轉譯後產出的檔案
 
 ### 開啟 Hot-Reload 支援
 除了 webpack.config.js 中的設定，index.js 也必須加上 HMR 的 API 呼叫：

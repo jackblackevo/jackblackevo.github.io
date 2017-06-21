@@ -325,6 +325,7 @@ if (module.hot) {
 * [Webpack - Configuration](https://webpack.js.org/configuration/)
 * [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/)
 * [Webpack - DefinePlugin](https://webpack.js.org/plugins/define-plugin/)
+* [Webpack - HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/)
 * [Webpack - Devtool](https://webpack.js.org/configuration/devtool/)
 * [Webpack - DevServer](https://webpack.js.org/configuration/dev-server/)
 * [Webpack - Concepts: Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/)

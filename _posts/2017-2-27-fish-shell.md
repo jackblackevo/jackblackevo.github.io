@@ -47,16 +47,18 @@ iTerm 2 -> Preferences -> Profiles -> Colors
 ## 設定 fish shell 環境變數
 由於 fish 並不相容 bash，所以環境變數的設定也不太一樣。
 
-這裡以 Homebrew 安裝的 Ruby 做為範例，原本在 bash 的環境變數設定指令：
+這裡以 [Go](https://golang.org/) 做為範例，原本在 bash 的 `GOPATH` 環境變數設定指令：
 
 ```bash
-$ echo "export PATH=$(brew --prefix ruby)/bin:$PATH" >> ~/.bash_profile
+$ echo "export GOPATH=$HOME/go" >> ~/.bash_profile
+$ echo "export PATH=$PATH:$GOPATH" >> ~/.bash_profile
 ```
 
 在 fish 則是：
 
 ```bash
-$ echo "set -g -x PATH (brew --prefix ruby)/bin $PATH" >> ~/.config/fish/config.fish
+$ echo "set -g -x GOPATH $HOME/go" >> ~/.config/fish/config.fish
+$ echo "set -g -x PATH $PATH $GOPATH" >> ~/.config/fish/config.fish
 ```
 
 設定完畢後重新載入 fish shell 設定檔即可：

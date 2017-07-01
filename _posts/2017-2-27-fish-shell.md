@@ -59,6 +59,12 @@ $ echo "export PATH=$(brew --prefix ruby)/bin:$PATH" >> ~/.bash_profile
 $ echo "set -g -x PATH (brew --prefix ruby)/bin $PATH" >> ~/.config/fish/config.fish
 ```
 
+設定完畢後重新載入 fish shell 設定檔即可：
+
+```bash
+$ source ~/.config/fish/config.fish
+```
+
 ## 設定 fish shell 配色及提示
 fish 內建多種配色以及提示功能，若有使用 Git 還可以直接看到目前所在的分支名稱、檔案異動狀態等資訊。
 
@@ -97,20 +103,10 @@ $ ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 $ echo "set -g -x NVM_DIR $HOME/.nvm" >> ~/.config/fish/config.fish
 ```
 
-再設定於 fish 載入時以 [Bass](https://github.com/edc/bass) 執行 nvm.sh，讓 NVM 自動使用預設 Node.js 版本：
+## 在 fish shell 中執行 bash script
+
+雖然 fish 並不相容 bash，但仍可透過 [Bass](https://github.com/edc/bass) 來執行 bash script：
 
 ```bash
-$ echo "bass source (brew --prefix nvm)/nvm.sh" >> ~/.config/fish/config.fish
-```
-
-※這是為了解決在執行 `node` 之前，`npm` 指令無法使用的問題：
-
-```
-env: node: No such file or directory
-```
-
-設定完畢後重新載入 fish shell 設定檔即可：
-
-```bash
-$ source ~/.config/fish/config.fish
+$ bass export X=3
 ```

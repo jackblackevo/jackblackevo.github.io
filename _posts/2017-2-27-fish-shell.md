@@ -105,6 +105,14 @@ $ ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 $ echo "set -g -x NVM_DIR $HOME/.nvm" >> ~/.config/fish/config.fish
 ```
 
+最後，為了讓 NPM 安裝的全域套件可以正常使用（如：`webpack`、`flow` 等指令）：
+
+```bash
+$ echo "bass source $NVM_DIR/nvm.sh" >> ~/.config/fish/config.fish
+```
+
+※若是沒有加入此設定，則在執行 `node` 或 `npm` 之前，全域套件的指令會無法使用
+
 ## 在 fish shell 中執行 bash script
 
 雖然 fish 並不相容 bash，但仍可透過 [Bass](https://github.com/edc/bass) 來執行 bash script：

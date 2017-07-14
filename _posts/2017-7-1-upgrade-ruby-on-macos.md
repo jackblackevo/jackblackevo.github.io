@@ -46,7 +46,7 @@ $ source ~/.bash_profile
 
 ## 安裝指定版本 Ruby
 
-查看目前系統中所有己安裝的版本：
+查看目前系統中所有已安裝的版本：
 
 ```bash
 $ rbenv versions

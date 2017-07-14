@@ -45,7 +45,7 @@ $ source ~/.config/fish/config.fish
 
 ## 安裝指定版本 Python
 
-查看目前系統中所有己安裝的版本：
+查看目前系統中所有已安裝的版本：
 
 ```bash
 $ pyenv versions

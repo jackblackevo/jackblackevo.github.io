@@ -46,6 +46,12 @@ $ source ~/.bash_profile
 
 ## 安裝指定版本 Ruby
 
+查看目前系統中所有己安裝的版本：
+
+```bash
+$ rbenv versions
+```
+
 查看目前可安裝的版本：
 
 ```bash
@@ -61,5 +67,11 @@ $ rbenv install 2.4.1
 待由 ruby-build 編譯、安裝完指定版本後，再設定要使用的 Ruby 版本：
 
 ```bash
-rbenv global 2.4.1
+$ rbenv global 2.4.1
+```
+
+查看目前所使用的版本：
+
+```bash
+$ rbenv version
 ```

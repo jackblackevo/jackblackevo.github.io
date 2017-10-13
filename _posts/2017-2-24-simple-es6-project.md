@@ -58,11 +58,11 @@ $ npm install babel-preset-es2015 --save-dev
 ```
 
 ## 相依套件
-`npm install` 的 `--save-dev` 參數（簡寫為 `-D`）除了安裝套件外，同時也會於 package.json 中將安裝的套件加入為開發環境相依套件（package.json 中的 `devDependencies` 屬性）。
+`npm install` 的 `--save-dev` 參數（簡寫為 `-D`）除了安裝套件外，同時也會於 package.json 中將安裝的套件加入為開發環境相依套件（package.json 中的 `devDependencies` 屬性）。如果僅用 `npm install [package]` 而未加參數，則只會單純的將套件安裝至專案中的 node_modules 目錄。
 
 另外，如果專案中有使用外部套件（如：React），則可以使用 `--save` 參數來安裝並加入為正式環境相依套件（package.json 中的 `dependencies` 屬性）。
 
-※從 NPM 5 開始，`npm install` 預設即安裝為正式環境相依套件，因此可省略 `--save` 參數
+※從 NPM 5 開始，`npm install [package]` 預設即安裝為正式環境相依套件，因此可省略 `--save` 參數
 
 `devDependencies` 與 `dependencies` 的差別在於：
 * `devDependencies`：僅開發時使用

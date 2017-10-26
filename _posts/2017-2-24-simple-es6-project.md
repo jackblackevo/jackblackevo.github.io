@@ -70,7 +70,7 @@ $ npm install babel-preset-es2015 --save-dev
 
 只要有設定好相依套件屬性的 package.json，即可透過 `npm install` 再次安裝開發及正式環境依賴的所有套件。
 
-※從 NPM 5 開始，會自動建立 package-lock.json 檔案來記錄套件的相依資訊，並且會優先以此紀錄的套件資訊來安裝，避免每一次 `npm install` 時都要重新分析每一個套件的依賴關係。因此也要避免手動修改 package.json 中的專案依賴套件，應使用指令操作來管理專案套件，由 NPM 維護專案依賴套件資訊
+※從 NPM 5 開始，會自動建立 package-lock.json 檔案來記錄套件的相依資訊，並且會優先以此紀錄的套件資訊來安裝，避免每一次 `npm install` 時都要重新分析每一個套件的依賴關係（也可能會安裝到次版號或修訂號之更新版本而導致不可預期的錯誤）。因此也要避免手動修改 package.json 中的專案依賴套件，應使用指令操作來管理專案套件，由 NPM 維護專案依賴套件資訊
 
 ## 建立設定檔案
 現在專案目錄中多了 package.json 設定檔，以及放置安裝套件的 node_modules 目錄。接下來要在專案目錄下建立：webpack.config.js、.babelrc、.gitignore 設定檔。

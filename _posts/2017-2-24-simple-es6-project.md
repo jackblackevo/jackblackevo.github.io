@@ -70,12 +70,12 @@ $ npm install babel-preset-es2015 --save-dev
 
 只要有設定好相依套件屬性的 package.json，即可透過 `npm install` 再次安裝開發及正式環境依賴的所有套件。
 
-※從 NPM 5 開始，會優先以 package-lock.json 檔案中記錄的套件資訊來安裝
+※從 NPM 5 開始，會自動建立 package-lock.json 檔案來記錄套件的相依資訊，並且會優先以此紀錄的套件資訊來安裝，避免每一次 `npm install` 時都要重新分析每一個套件的依賴關係。因此也要避免手動修改 package.json 中的專案依賴套件，應使用指令操作來管理專案套件，由 NPM 維護專案依賴套件資訊
 
 ## 建立設定檔案
 現在專案目錄中多了 package.json 設定檔，以及放置安裝套件的 node_modules 目錄。接下來要在專案目錄下建立：webpack.config.js、.babelrc、.gitignore 設定檔。
 
-※從 NPM 5 開始，會將 node_modules 目錄中所有套件的相關資訊記錄在 package-lock.json。未來若要更新套件必須使用 `npm install package-name@version` 來指定版本，NPM 會自動維護 package-lock.json 檔案
+※從 NPM 5 開始，會將 node_modules 目錄中所有套件的相關資訊記錄在 package-lock.json。未來若要更新套件至跨主版號（major version）之版本必須使用 `npm install [package@version]` 來指定新版本，非主版號之更新則可以使用 `npm update [package]`。NPM 會自動維護 package-lock.json 檔案
 
 ```
 project
@@ -336,3 +336,5 @@ if (module.hot) {
 * [eddychang.me - Source Map(原始碼映射表)](http://eddychang.me/blog/javascript/76-source-map.html)
 * [The npm Blog - v5.0.0](http://blog.npmjs.org/post/161081169345/v500)
 * [老雷的实验室 - 说说 npm 5 的新坑](https://mp.weixin.qq.com/s?__biz=MjM5MDcyMzIwNQ==&mid=2447503211&idx=1&sn=ace8556f50d9e024ac961a35a81a6ed7&chksm=b25532818522bb9763fd079aec1aec45e5797174dde6f4a082eed21aed34504be3f69138600d#rd)
+* [NPM - npm-package-locks](https://docs.npmjs.com/files/package-locks)
+* [NPM vs. Yarn：指令對照](https://jackblackevo.github.io/npm-vs-yarn-cli-commands-comparison/)

@@ -145,7 +145,10 @@ Oh My Zsh 的套件安裝方式可依以下步驟：
 	$ source ~/.zshrc
 	```
 
-### nvm
+### NVM
+#### 使用 Homebrew 安裝
+**Homebrew 上的版本已不在維護，不建議使用此方式安裝。**
+
 Oh My Zsh 內建對 NVM 的支援，首先還是要安裝好 NVM：
 
 ```bash
@@ -160,6 +163,15 @@ $ ln -s $(brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 ```
 
 再修改 .zshrc 設定檔中的 `plugins` 加入 nvm。
+
+#### 透過 zsh-nvm 安裝
+**由於 nvm 已不繼續支援透過 Homebrew 的安裝方式**，因此我們使用 zsh-nvm 來安裝：
+
+```bash
+git clone https://github.com/lukechilds/zsh-nvm $ZSH_CUSTOM/plugins/zsh-nvm
+```
+
+再修改 .zshrc 設定檔中的 `plugins` 加入 zsh-nvm。
 
 ### z
 Oh My Zsh 內建對 Z 的支援，首先還是要安裝好 Z：
@@ -277,10 +289,10 @@ antigen theme bhilburn/powerlevel9k
 
 # 透過 Antigen 使用 Oh My Zsh 內建 plug-ins
 antigen bundle git
-antigen bundle nvm
 antigen bundle z
 
 # 透過 Antigen 使用其他 Zsh plug-ins
+antigen bundle lukechilds/zsh-nvm
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zdharma/history-search-multi-word

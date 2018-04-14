@@ -13,7 +13,7 @@ title: Blog 建立步驟
 $ gem update
 ```
 
-2\. 依照 [Jekyll](https://jekyllrb.com/) 官網說明，安裝 Jekyyll 和 [Bundler](http://bundler.io/)：
+2\. 依照 [Jekyll](https://jekyllrb.com/) 官網說明，安裝 Jekyll 和 [Bundler](http://bundler.io/)：
 
 ```bash
 $ gem install jekyll bundler

@@ -3,7 +3,7 @@ layout: post
 title: macOS CLI 環境建置：Zsh
 ---
 
-前一篇安裝好 iTerm2 及 Homebrew 後，這次要將 Shell 從 bash 改為更強大的 Zsh。Zsh 擁有自動補齊指令、路徑、變數等等的功能，並可以依據自身需求再加裝 plug-ins。
+前一篇安裝好 iTerm2 及 Homebrew 後，這次要將 Shell 從 bash 改為更強大的 [Zsh](https://www.zsh.org/)。Zsh 擁有自動補齊指令、路徑、變數等等的功能，並可以依據自身需求再加裝 plug-ins。
 
 雖然 Zsh 相較於之前介紹過的 fish 仍有許多不足之處，但 Zsh 最大的優勢在於相容於 bash，不必重新學習特有的 shell script。不得不說 fish 的自動補齊以及指令提示真的非常強大，尤其是使用 `git add [deep/path/file]` 時還可以只打部分檔名再加 <kbd>Tab</kbd> 就能補齊正確路徑！
 
@@ -149,7 +149,7 @@ Oh My Zsh 的套件安裝方式可依以下步驟：
 #### 使用 Homebrew 安裝
 **Homebrew 上的版本已不在維護，不建議使用此方式安裝。**
 
-Oh My Zsh 內建對 NVM 的支援，首先還是要安裝好 NVM：
+Oh My Zsh 內建對 [NVM](https://github.com/creationix/nvm) 的支援，首先還是要安裝好 NVM：
 
 ```bash
 $ brew install nvm
@@ -165,7 +165,7 @@ $ ln -s $(brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 再修改 .zshrc 設定檔中的 `plugins` 加入 nvm。
 
 #### 透過 zsh-nvm 安裝
-**由於 nvm 已不繼續支援透過 Homebrew 的安裝方式**，因此我們使用 zsh-nvm 來安裝：
+**由於 nvm 已不繼續支援透過 Homebrew 的安裝方式**，因此我們使用 [zsh-nvm](https://github.com/lukechilds/zsh-nvm) 來安裝：
 
 ```bash
 git clone https://github.com/lukechilds/zsh-nvm $ZSH_CUSTOM/plugins/zsh-nvm
@@ -174,7 +174,7 @@ git clone https://github.com/lukechilds/zsh-nvm $ZSH_CUSTOM/plugins/zsh-nvm
 再修改 .zshrc 設定檔中的 `plugins` 加入 zsh-nvm。
 
 ### z
-Oh My Zsh 內建對 Z 的支援，首先還是要安裝好 Z：
+Oh My Zsh 內建對 [Z](https://github.com/rupa/z) 的支援，首先還是要安裝好 Z：
 
 ```bash
 $ brew install z
@@ -192,7 +192,7 @@ $ autoload -U compinit && compinit
 提供 NPM 指令的提示，須要先安裝好 NPM 再修改 .zshrc 設定檔中的 `plugins` 加入 npm。-->
 
 ### zsh-autosuggestions
-提供指令提示功能的 plug-in：
+[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 是一個提供指令提示功能的 plug-in：
 
 ```bash
 $ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
@@ -208,7 +208,7 @@ $ source ~/.zshrc
 ```
 
 ### zsh-syntax-highlighting
-提供語法高亮（syntax highlighting）功能的 plug-in：
+[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) 是一個提供語法高亮（syntax highlighting）功能的 plug-in：
 
 ```bash
 $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
@@ -222,7 +222,7 @@ $ git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTO
 ```-->
 
 ### history-search-multi-word
-提供以隨打即找的方式來搜尋指令歷史操作的 plug-in：
+[history-search-multi-word](https://github.com/zdharma/history-search-multi-word) 是一個提供以隨打即找的方式來搜尋指令歷史操作的 plug-in：
 
 ```bash
 $ git clone https://github.com/zdharma/history-search-multi-word.git $ZSH_CUSTOM/plugins/history-search-multi-word
@@ -231,7 +231,7 @@ $ git clone https://github.com/zdharma/history-search-multi-word.git $ZSH_CUSTOM
 再修改 .zshrc 設定檔中的 `plugins` 加入 history-search-multi-word。
 
 ### bd
-提供直接跳至目前所在路徑的特定名稱之父目錄的 plug-in：
+[bd](https://github.com/Tarrasch/zsh-bd) 是一個提供直接跳至目前所在路徑的特定名稱之父目錄的 plug-in：
 
 ```bash
 $ git clone https://github.com/Tarrasch/zsh-bd.git $ZSH_CUSTOM/plugins/bd
@@ -240,7 +240,7 @@ $ git clone https://github.com/Tarrasch/zsh-bd.git $ZSH_CUSTOM/plugins/bd
 再修改 .zshrc 設定檔中的 `plugins` 加入 bd。
 
 ### zsh-interactive-cd
-提供以隨打即找的方式來切換目錄，此 plug-in 須要先安裝 fzf：
+[zsh-interactive-cd](https://github.com/changyuheng/zsh-interactive-cd) 是一個提供以隨打即找的方式來切換目錄，此 plug-in 須要先安裝 [fzf](https://github.com/junegunn/fzf)：
 
 ```bash
 $ brew install fzf
@@ -250,7 +250,7 @@ $ git clone https://github.com/changyuheng/zsh-interactive-cd.git $ZSH_CUSTOM/pl
 再修改 .zshrc 設定檔中的 `plugins` 加入 zsh-interactive-cd。
 
 ### fz
-提供以隨打即找的方式自歷史目錄中切換，此 plug-in 須要先安裝 fzf 以及 z：
+[fz](https://github.com/changyuheng/fz) 是一個提供以隨打即找的方式自歷史目錄中切換，此 plug-in 須要先安裝 fzf 以及 z：
 
 ```bash
 $ brew install fzf z

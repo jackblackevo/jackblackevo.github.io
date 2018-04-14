@@ -3,7 +3,7 @@ layout: post
 title: Blog 建立步驟
 ---
 
-使用 [jekyll-now](https://github.com/barryclark/jekyll-now) 主題，於本地端建立。第一次接觸，還很不熟悉 😅
+使用 [Jekyll Now](https://github.com/barryclark/jekyll-now) 主題，於本地端建立。第一次接觸，還很不熟悉 😅
 
 環境為 macOS，使用系統內建的 Ruby（若要更新版本，請參考文末連結）。
 
@@ -22,14 +22,21 @@ $ gem install jekyll bundler
 3\. 切換到要放置 Blog 檔案的目錄，建立 Jekyll 專案：
 
 ```bash
-$ cd targetFolder
+$ cd target_folder
 $ jekyll new .
 ```
 
 4\. 將 jekyll-now 主題的檔案複製過來：
 
 ```bash
-$ cp -r ~/XXX/themeFileFolder/ .
+$ cp -r ~/XXX/theme_fileFolder/ .
+```
+
+或也可以直接加入 jekyll-now 的 repo 再 merge squash 過來：
+
+```bash
+$ git remote add jekyll-now git@github.com:barryclark/jekyll-now.git
+$ git merge --squash jekyll-now/master --allow-unrelated-histories
 ```
 
 5\. 執行 Bundler 指令（還不知道詳細用處，猜是和 Ruby 套件的相依性有關）：

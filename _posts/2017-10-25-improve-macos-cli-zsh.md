@@ -131,8 +131,8 @@ $ source ~/.zshrc
 Oh My Zsh 的套件安裝方式可依以下步驟：
 
 1. Plug-in 分為 Oh My Zsh 內建、或是自行下載
-	* __內建之 plug-in：__無須額外的下載操作
-	* __自行下載之 plug-in：__將 plug-in 下載（建議使用 `git clone`）至 `$ZSH_CUSTOM/plugins/`（變數 `$ZSH_CUSTOM` 會指向 ~/.oh-my-zsh/custom）
+	* **內建之 plug-in：**無須額外的下載操作
+	* **自行下載之 plug-in：**將 plug-in 下載（建議使用 `git clone`）至 `$ZSH_CUSTOM/plugins/`（變數 `$ZSH_CUSTOM` 會指向 ~/.oh-my-zsh/custom）
 2. 修改 .zshrc 設定檔中的 `plugins`：
 
 	```

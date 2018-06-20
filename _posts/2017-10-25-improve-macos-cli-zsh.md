@@ -221,14 +221,14 @@ $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM
 $ git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
 ```-->
 
-### history-search-multi-word
+<!--### history-search-multi-word
 [history-search-multi-word](https://github.com/zdharma/history-search-multi-word) 是一個提供以隨打即找的方式來搜尋指令歷史操作的 plug-in：
 
 ```bash
 $ git clone https://github.com/zdharma/history-search-multi-word.git $ZSH_CUSTOM/plugins/history-search-multi-word
 ```
 
-再修改 .zshrc 設定檔中的 `plugins` 加入 history-search-multi-word。
+再修改 .zshrc 設定檔中的 `plugins` 加入 history-search-multi-word。-->
 
 ### bd
 [bd](https://github.com/Tarrasch/zsh-bd) 是一個提供直接跳至目前所在路徑的特定名稱之父目錄的 plug-in：
@@ -239,21 +239,42 @@ $ git clone https://github.com/Tarrasch/zsh-bd.git $ZSH_CUSTOM/plugins/bd
 
 再修改 .zshrc 設定檔中的 `plugins` 加入 bd。
 
-### zsh-interactive-cd
-[zsh-interactive-cd](https://github.com/changyuheng/zsh-interactive-cd) 是一個提供以隨打即找的方式來切換目錄，此 plug-in 須要先安裝 [fzf](https://github.com/junegunn/fzf)：
+### fzf
+[fzf](https://github.com/junegunn/fzf) 是一個模糊搜尋工具，可以輸入關鍵字的方式尋找檔案或目錄。fzf 不是 Zsh 的 plug-in，但為許多隨打即找工具的相依套件。
 
 ```bash
 $ brew install fzf
+```
+
+接著安裝 fzf 的 key bindings 及 fuzzy completion 功能：
+
+```bash
+$ $(brew --prefix)/opt/fzf/install
+```
+
+安裝後會於 .zshrc 設定檔中新增：
+
+```bash
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+```
+
+### zsh-interactive-cd
+[zsh-interactive-cd](https://github.com/changyuheng/zsh-interactive-cd) 是一個提供以隨打即找的方式來切換目錄的 plug-in。
+
+※須要先安裝 [fzf](#fzf)
+
+```bash
 $ git clone https://github.com/changyuheng/zsh-interactive-cd.git $ZSH_CUSTOM/plugins/zsh-interactive-cd
 ```
 
 再修改 .zshrc 設定檔中的 `plugins` 加入 zsh-interactive-cd。
 
 ### fz
-[fz](https://github.com/changyuheng/fz) 是一個提供以隨打即找的方式自歷史目錄中切換，此 plug-in 須要先安裝 fzf 以及 z：
+[fz](https://github.com/changyuheng/fz) 是一個提供以隨打即找的方式自歷史目錄中切換的 plug-in。
+
+※須要先安裝 [fzf](#fzf) 以及 [z](#z)
 
 ```bash
-$ brew install fzf z
 $ git clone https://github.com/changyuheng/fz.git $ZSH_CUSTOM/plugins/fz
 ```
 

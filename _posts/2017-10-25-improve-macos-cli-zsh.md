@@ -221,14 +221,14 @@ $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM
 $ git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
 ```-->
 
-### history-search-multi-word
+<!--### history-search-multi-word
 [history-search-multi-word](https://github.com/zdharma/history-search-multi-word) 是一個提供以隨打即找的方式來搜尋指令歷史操作的 plug-in：
 
 ```bash
 $ git clone https://github.com/zdharma/history-search-multi-word.git $ZSH_CUSTOM/plugins/history-search-multi-word
 ```
 
-再修改 .zshrc 設定檔中的 `plugins` 加入 history-search-multi-word。
+再修改 .zshrc 設定檔中的 `plugins` 加入 history-search-multi-word。-->
 
 ### bd
 [bd](https://github.com/Tarrasch/zsh-bd) 是一個提供直接跳至目前所在路徑的特定名稱之父目錄的 plug-in：

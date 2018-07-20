@@ -105,7 +105,7 @@ $ ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh
 $ echo "set -g -x NVM_DIR $HOME/.nvm" >> ~/.config/fish/config.fish
 ```
 
-最後，為了讓 NPM 安裝的全域套件可以正常使用（如：`webpack`、`flow` 等指令）：
+最後，為了讓 npm 安裝的全域套件可以正常使用（如：`webpack`、`flow` 等指令）：
 
 ```bash
 $ echo "bass source $NVM_DIR/nvm.sh" >> ~/.config/fish/config.fish

@@ -21,6 +21,7 @@ title: npm vs. Yarn：指令對照
 | `npm outdated`                       | `yarn outdated`                   | 檢查過期（已有新版）的套件                            |
 | `npm update`                         | `yarn upgrade`                    | 更新所有專案相依套件                               |
 | `npm update [package]`               | `yarn upgrade [package]`          | 更新指定的專案相依套件                              |
+| `npm update [package]@latest`        | `yarn upgrade [package] --latest` | 更新指定的專案相依套件至最新的 major version       |
 | `npm update --global`                | `yarn upgrade --global`           | 更新所有全域套件                                 |
 | `npm update --global [package]`      | `yarn upgrade --global [package]` | 更新指定的全域套件                                |
 | `npm run [script]`                   | `yarn run [script]`               | 執行專案自訂指令（package.json 中的 `scripts` 屬性）   |
@@ -28,4 +29,6 @@ title: npm vs. Yarn：指令對照
 ## 額外參考
 * [Yarn - Migrating from npm](https://yarnpkg.com/en/docs/migrating-from-npm)
 * [Yarn - Docs](https://yarnpkg.com/en/docs)
+  * [yarn upgrade](https://yarnpkg.com/en/docs/cli/upgrade)
 * [npm - documentation](https://docs.npmjs.com/)
+  * [npm-install](https://docs.npmjs.com/cli/install)

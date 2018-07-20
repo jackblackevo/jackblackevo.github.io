@@ -189,7 +189,7 @@ $ autoload -U compinit && compinit
 ```-->
 
 <!--### npm
-提供 NPM 指令的提示，須要先安裝好 NPM 再修改 .zshrc 設定檔中的 `plugins` 加入 npm。-->
+提供 npm 指令的提示，須要先安裝好 npm 再修改 .zshrc 設定檔中的 `plugins` 加入 npm。-->
 
 ### zsh-autosuggestions
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 是一個提供指令提示功能的 plug-in：
